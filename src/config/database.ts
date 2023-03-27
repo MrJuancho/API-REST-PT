@@ -19,7 +19,7 @@ export const AV_DB = new DataSource({
     password: "Haru&Wero14",
     schema : "dbo",
     database: "AVDBProd",
-    connectionTimeout: 30,
+    connectionTimeout: 5000,
     entities: [CatMateria, CatActividad, CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
               CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo, CatTipoPersonalizacion, TblAlumno,
               TblAsistenteVirtual, TblAnalisisDeDatos, TblDesafioDiarioAlumno, TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
@@ -27,11 +27,12 @@ export const AV_DB = new DataSource({
     synchronize: false,
     options:{
       connectTimeout:5000,
+      encrypt: true
     },
     extra:{
     trustServerCertificate: false,
     persistSecurityInfo: false,
-  }
+  },
 })
 
 export default AV_DB
