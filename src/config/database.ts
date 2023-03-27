@@ -13,23 +13,24 @@ import { CatMateria, CatActividad,
 
 export const AV_DB = new DataSource({
     type: "mssql",
-    host: "localhost",
+    host: "eu-az-sql-serv1.database.windows.net",
     port: 1433,
-    username: "Admin",
+    username: "adminptdb",
     password: "Haru&Wero14",
     schema : "dbo",
-    database: "AV_Development",
+    database: "AVDBProd",
+    connectionTimeout: 30,
     entities: [CatMateria, CatActividad, CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
               CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo, CatTipoPersonalizacion, TblAlumno,
               TblAsistenteVirtual, TblAnalisisDeDatos, TblDesafioDiarioAlumno, TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
               TblPpbAlumno, TblRegistroDiarioActividades, TblReporteAnalisisDatos, TblResultadosActividad, TblTareasDiariasAlumno],
     synchronize: false,
+    options:{
+      connectTimeout:5000,
+    },
     extra:{
-    trustServerCertificate: true,
-    options: {
-      trustedConnection: true,
-      enableArithAbort: true
-    }
+    trustServerCertificate: false,
+    persistSecurityInfo: false,
   }
 })
 
