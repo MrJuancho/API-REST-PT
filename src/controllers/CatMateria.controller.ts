@@ -1,4 +1,4 @@
-import { Get, Route, Tags, Body, Path, Post } from "tsoa"
+import { Get, Route, Tags, Path } from "tsoa"
 import { CatMateria } from "../models"
 import {
     getMaterias,

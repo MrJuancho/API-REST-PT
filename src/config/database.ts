@@ -11,7 +11,7 @@ import { CatMateria, CatActividad,
         TblReporteAnalisisDatos, TblResultadosActividad,
         TblTareasDiariasAlumno } from "../models";
 
-export const AV_DB = new DataSource({
+export const db = new DataSource({
     type: "mssql",
     host: "eu-az-sql-serv1.database.windows.net",
     port: 1433,
@@ -35,4 +35,4 @@ export const AV_DB = new DataSource({
   },
 })
 
-export default AV_DB
+export default db

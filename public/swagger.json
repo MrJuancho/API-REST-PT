@@ -811,6 +811,189 @@
 					}
 				]
 			}
+		},
+		"/tipospersonalizacion": {
+			"get": {
+				"operationId": "GetAllTiposPersonalizacion",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatTipoPersonalizacion"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatTipoPersonalizacion"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/tipospersonalizacion/{name}": {
+			"get": {
+				"operationId": "GetTipoPersonalizacion",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatTipoPersonalizacion"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatTipoPersonalizacion"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/tiposDesbloqueo": {
+			"get": {
+				"operationId": "GetTiposDesbloqueo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatTipoDesbloqueo"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatTipoDesbloqueo"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/tiposDesbloqueo/{name}": {
+			"get": {
+				"operationId": "GetTipoDesbloqueo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatTipoDesbloqueo"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatTipoDesbloqueo"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/props": {
+			"get": {
+				"operationId": "GetAllPropsPersonalizacion",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatPropPersonalizacion"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatPropPersonalizacion"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/props/{name}": {
+			"get": {
+				"operationId": "GetPropPersonalizacion",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatPropPersonalizacion"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatPropPersonalizacion"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
 		}
 	},
 	"servers": [

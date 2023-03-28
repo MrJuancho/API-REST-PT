@@ -1,4 +1,4 @@
-import express, { response } from "express"
+import express from "express"
 import CatMateriaController from "../controllers/CatMateria.controller"
 
 const router =  express.Router()

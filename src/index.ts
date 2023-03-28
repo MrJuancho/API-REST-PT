@@ -1,7 +1,7 @@
-import express, { Application, Request, Response } from "express"
+import express, { Application } from "express"
 import morgan from "morgan"
 import swaggerUi from "swagger-ui-express"
-import { AV_DB } from "./config/database"
+import { db } from "./config/database"
 
 import Router from "./routes"
 
@@ -25,7 +25,7 @@ app.use(
 
   app.use(Router)
 
-  AV_DB.initialize()
+  db.initialize()
     .then(() => {
         console.log("Data Source has been initialized!")
     })
