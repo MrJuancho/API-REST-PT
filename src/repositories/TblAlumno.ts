@@ -56,7 +56,9 @@ export const getAlumnoSession = async ( payload : AlumnoSessionPayload ) : Promi
         claveAcceso : payload.password
     }})
 
+
     if(!session) return null
+    console.log(session)
     return session
 }
 

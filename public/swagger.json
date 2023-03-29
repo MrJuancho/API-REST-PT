@@ -1342,6 +1342,228 @@
 					}
 				]
 			}
+		},
+		"/datoCurioso": {
+			"get": {
+				"operationId": "GetDatosCuriosos",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatDatoCurioso"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatDatoCurioso"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/datoCurioso/{idDatoCurioso}": {
+			"get": {
+				"operationId": "GetDatoCurioso",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatDatoCurioso"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatDatoCurioso"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idDatoCurioso",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/contenidoMaterias": {
+			"get": {
+				"operationId": "GetContenidoMaterias",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatContenidoMaterias"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatContenidoMaterias"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/contenidoMaterias/{idContenidoMateria}": {
+			"get": {
+				"operationId": "GetContenidoMateria",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatContenidoMaterias"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatContenidoMaterias"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idContenidoMateria",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/actividadPPB": {
+			"get": {
+				"operationId": "GetActividadesPPB",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatActividadPpb"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatActividadPPB"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/actividadPPB/{idActividadPPB}": {
+			"get": {
+				"operationId": "GetActividadPPB",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatActividadPpb"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatActividadPPB"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idActividadPPB",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/alumno/{nombre}": {
+			"get": {
+				"operationId": "GetAlumnoByUsername",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/TblAlumno"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"TblAlumno"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "nombre",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
 		}
 	},
 	"servers": [
