@@ -220,6 +220,9 @@
 							"$ref": "#/components/schemas/TblTareasDiariasAlumno"
 						},
 						"type": "array"
+					},
+					"tblPpbAlumno": {
+						"$ref": "#/components/schemas/TblPpbAlumno"
 					}
 				},
 				"required": [
@@ -237,7 +240,8 @@
 					"cct",
 					"tblDesafioDiarioAlumnos",
 					"tblResultadosActividads",
-					"tblTareasDiariasAlumnos"
+					"tblTareasDiariasAlumnos",
+					"tblPpbAlumno"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -692,6 +696,104 @@
 					"asistencias",
 					"idActividad",
 					"idAlumno"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TblPpbAlumno": {
+				"properties": {
+					"idPpbAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"idAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"indiceAtencion": {
+						"type": "number",
+						"format": "double"
+					},
+					"indiceMemoria": {
+						"type": "number",
+						"format": "double"
+					},
+					"indicePercepcion": {
+						"type": "number",
+						"format": "double"
+					},
+					"tblReporteAnalisisDatos": {
+						"items": {
+							"$ref": "#/components/schemas/TblReporteAnalisisDatos"
+						},
+						"type": "array"
+					},
+					"tblAlumno": {
+						"items": {
+							"$ref": "#/components/schemas/TblAlumno"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idPpbAlumno",
+					"idAlumno",
+					"indiceAtencion",
+					"indiceMemoria",
+					"indicePercepcion",
+					"tblReporteAnalisisDatos",
+					"tblAlumno"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TblReporteAnalisisDatos": {
+				"properties": {
+					"idReporteAnalisis": {
+						"type": "number",
+						"format": "double"
+					},
+					"idPpbAlumno": {
+						"$ref": "#/components/schemas/TblPpbAlumno"
+					},
+					"idAnalisisDatos": {
+						"$ref": "#/components/schemas/TblAnalisisDeDatos"
+					}
+				},
+				"required": [
+					"idReporteAnalisis",
+					"idPpbAlumno",
+					"idAnalisisDatos"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TblAnalisisDeDatos": {
+				"properties": {
+					"idAnalisisDatos": {
+						"type": "number",
+						"format": "double"
+					},
+					"idActividadPpbAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"fechaAnalisis": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"tblReporteAnalisisDatos": {
+						"items": {
+							"$ref": "#/components/schemas/TblReporteAnalisisDatos"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idAnalisisDatos",
+					"idActividadPpbAlumno",
+					"fechaAnalisis",
+					"tblReporteAnalisisDatos"
 				],
 				"type": "object",
 				"additionalProperties": false

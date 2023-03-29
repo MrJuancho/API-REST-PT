@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
@@ -12,6 +13,7 @@ import { CatEscuela } from "./CatEscuela";
 import { TblDesafioDiarioAlumno } from "./TblDesafioDiarioAlumno";
 import { TblResultadosActividad } from "./TblResultadosActividad";
 import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
+import { TblPpbAlumno } from "./TblPpbAlumno";
 
 @Index("PK_TBL_Alumno", ["idAlumno"], { unique: true })
 @Entity("TBL_Alumno", { schema: "dbo" })
@@ -74,4 +76,10 @@ export class TblAlumno {
     (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idAlumno
   )
   tblTareasDiariasAlumnos!: TblTareasDiariasAlumno[];
+
+  @OneToOne(
+    () => TblPpbAlumno,
+    (tblPpbAlumno) => tblPpbAlumno.idAlumno
+  )
+  tblPpbAlumno! : TblPpbAlumno; 
 }

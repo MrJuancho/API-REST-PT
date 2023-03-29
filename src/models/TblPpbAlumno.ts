@@ -2,9 +2,12 @@ import {
   Column,
   Entity,
   Index,
+  ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { TblAlumno } from "./TblAlumno";
 import { TblReporteAnalisisDatos } from "./TblReporteAnalisisDatos";
 
 @Index("PK_TBL_PPBAlumno", ["idPpbAlumno"], { unique: true })
@@ -30,4 +33,10 @@ export class TblPpbAlumno {
     (tblReporteAnalisisDatos) => tblReporteAnalisisDatos.idPpbAlumno
   )
   tblReporteAnalisisDatos!: TblReporteAnalisisDatos[];
+
+  @OneToOne(
+    () => TblAlumno,
+    (tblAlumno) => tblAlumno.idAlumno
+  )
+  tblAlumno!: TblAlumno[];
 }
