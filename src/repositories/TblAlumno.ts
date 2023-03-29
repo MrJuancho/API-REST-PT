@@ -13,32 +13,9 @@ export interface AlumnoDataPayload {
     balanceEstrellas: Number
 }
 
-export interface AlumnoSessionPayload {
-    username : string,
-    password : string
-}
-
-export interface AlumnoBasicDataPayload {
-    nombre: string,
-    apellidoPaterno: string,
-    apellidoMaterno: string
-}
-
 export const getAlumnos = async () : Promise<Array<TblAlumno>> => {
     const alumnoRepository = db.getRepository(TblAlumno)
     return alumnoRepository.find()
-}
-
-export const getAlumnoByBasicData = async (payload: AlumnoBasicDataPayload) : Promise<TblAlumno | null> => {
-    const alumnoRepository = db.getRepository(TblAlumno)
-    const alumno = await alumnoRepository.findOne({ where: {
-        nombre : payload.nombre,
-        apellidoMaterno : payload.apellidoMaterno,
-        apellidoPaterno : payload.apellidoPaterno
-    }})
-
-    if(!alumno) return null
-    return alumno
 }
 
 export const getAlumnoByUsername = async (username : string) : Promise<TblAlumno | null> => {
@@ -47,19 +24,6 @@ export const getAlumnoByUsername = async (username : string) : Promise<TblAlumno
 
     if(!alumno) return null
     return alumno
-}
-
-export const getAlumnoSession = async ( payload : AlumnoSessionPayload ) : Promise<TblAlumno | null> => {
-    const alumnoRepository = db.getRepository(TblAlumno)
-    const session = await alumnoRepository.findOne({ where : {
-        nombreUsuario : payload.username,
-        claveAcceso : payload.password
-    }})
-
-
-    if(!session) return null
-    console.log(session)
-    return session
 }
 
 //export const createAlumno = async (payload : AlumnoDataPayload): Promise<TblAlumno> => {
