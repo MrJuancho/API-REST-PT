@@ -7,8 +7,9 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { CatTipoPersonalizacion } from "./CatTipoPersonalizacion";
 import { CatTipoDesbloqueo } from "./CatTipoDesbloqueo";
+import { CatTipoPersonalizacion } from "./CatTipoPersonalizacion";
+import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
 import { TblDesbloqueosPropsAv } from "./TblDesbloqueosPropsAv";
 
 @Index("PK_CAT_PropPersonalizacion", ["idPropPersonalizacion"], {
@@ -23,10 +24,19 @@ export class CatPropPersonalizacion {
   nomProp!: string;
 
   @Column("nvarchar", { name: "Desc_Prop", nullable: true, length: 250 })
-  descProp?: string | null;
+  descProp!: string | null;
 
   @Column("int", { name: "Costo" })
   costo!: number;
+
+  @ManyToOne(
+    () => CatTipoDesbloqueo,
+    (catTipoDesbloqueo) => catTipoDesbloqueo.catPropPersonalizacions
+  )
+  @JoinColumn([
+    { name: "idTipoDebloqueo", referencedColumnName: "idTipoDesbloqueo" },
+  ])
+  idTipoDebloqueo!: CatTipoDesbloqueo;
 
   @ManyToOne(
     () => CatTipoPersonalizacion,
@@ -40,18 +50,39 @@ export class CatPropPersonalizacion {
   ])
   idTipoPersonalizacion!: CatTipoPersonalizacion;
 
-  @ManyToOne(
-    () => CatTipoDesbloqueo,
-    (catTipoDesbloqueo) => catTipoDesbloqueo.catPropPersonalizacions
+  @OneToMany(
+    () => TblAsistenteVirtual,
+    (tblAsistenteVirtual) => tblAsistenteVirtual.idCara
   )
-  @JoinColumn([
-    { name: "idTipoDebloqueo", referencedColumnName: "idTipoDesbloqueo" },
-  ])
-  idTipoDebloqueo!: CatTipoDesbloqueo;
+  tblAsistenteVirtuals?: TblAsistenteVirtual[];
+
+  @OneToMany(
+    () => TblAsistenteVirtual,
+    (tblAsistenteVirtual) => tblAsistenteVirtual.idColor
+  )
+  tblAsistenteVirtuals2?: TblAsistenteVirtual[];
+
+  @OneToMany(
+    () => TblAsistenteVirtual,
+    (tblAsistenteVirtual) => tblAsistenteVirtual.idPatron
+  )
+  tblAsistenteVirtuals3?: TblAsistenteVirtual[];
+
+  @OneToMany(
+    () => TblAsistenteVirtual,
+    (tblAsistenteVirtual) => tblAsistenteVirtual.idPrenda
+  )
+  tblAsistenteVirtuals4?: TblAsistenteVirtual[];
+
+  @OneToMany(
+    () => TblAsistenteVirtual,
+    (tblAsistenteVirtual) => tblAsistenteVirtual.idSpecial
+  )
+  tblAsistenteVirtuals5?: TblAsistenteVirtual[];
 
   @OneToMany(
     () => TblDesbloqueosPropsAv,
     (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.idPropsPersonalizacion
   )
-  tblDesbloqueosPropsAvs!: TblDesbloqueosPropsAv[];
+  tblDesbloqueosPropsAvs?: TblDesbloqueosPropsAv[];
 }

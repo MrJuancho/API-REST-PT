@@ -5,15 +5,14 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
 import { CatEscuela } from "./CatEscuela";
 import { TblDesafioDiarioAlumno } from "./TblDesafioDiarioAlumno";
+import { TblPpbAlumno } from "./TblPpbAlumno";
 import { TblResultadosActividad } from "./TblResultadosActividad";
 import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
-import { TblPpbAlumno } from "./TblPpbAlumno";
 
 @Index("PK_TBL_Alumno", ["idAlumno"], { unique: true })
 @Entity("TBL_Alumno", { schema: "dbo" })
@@ -63,23 +62,20 @@ export class TblAlumno {
     () => TblDesafioDiarioAlumno,
     (tblDesafioDiarioAlumno) => tblDesafioDiarioAlumno.idAlumno
   )
-  tblDesafioDiarioAlumnos!: TblDesafioDiarioAlumno[];
+  tblDesafioDiarioAlumnos?: TblDesafioDiarioAlumno[];
+
+  @OneToMany(() => TblPpbAlumno, (tblPpbAlumno) => tblPpbAlumno.idAlumno)
+  tblPpbAlumnos?: TblPpbAlumno[];
 
   @OneToMany(
     () => TblResultadosActividad,
     (tblResultadosActividad) => tblResultadosActividad.idAlumno
   )
-  tblResultadosActividads!: TblResultadosActividad[];
+  tblResultadosActividads?: TblResultadosActividad[];
 
   @OneToMany(
     () => TblTareasDiariasAlumno,
     (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idAlumno
   )
-  tblTareasDiariasAlumnos!: TblTareasDiariasAlumno[];
-
-  @OneToOne(
-    () => TblPpbAlumno,
-    (tblPpbAlumno) => tblPpbAlumno.idAlumno
-  )
-  tblPpbAlumno! : TblPpbAlumno; 
+  tblTareasDiariasAlumnos?: TblTareasDiariasAlumno[];
 }

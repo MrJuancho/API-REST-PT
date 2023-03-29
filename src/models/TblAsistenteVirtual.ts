@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { TblAlumno } from "./TblAlumno";
+import { CatPropPersonalizacion } from "./CatPropPersonalizacion";
 import { TblDesbloqueosPropsAv } from "./TblDesbloqueosPropsAv";
 
 @Index("PK_TBL_AsistenteVirtual", ["idAv"], { unique: true })
@@ -16,46 +17,56 @@ export class TblAsistenteVirtual {
   idAv!: number;
 
   @OneToMany(() => TblAlumno, (tblAlumno) => tblAlumno.idAv)
-  tblAlumnos!: TblAlumno[];
+  tblAlumnos?: TblAlumno[];
 
   @ManyToOne(
-    () => TblDesbloqueosPropsAv,
-    (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.tblAsistenteVirtuals
+    () => CatPropPersonalizacion,
+    (catPropPersonalizacion) => catPropPersonalizacion.tblAsistenteVirtuals
   )
-  @JoinColumn([{ name: "idCara", referencedColumnName: "idDesbloqueosAv" }])
-  idCara!: TblDesbloqueosPropsAv;
+  @JoinColumn([
+    { name: "idCara", referencedColumnName: "idPropPersonalizacion" },
+  ])
+  idCara!: CatPropPersonalizacion;
 
   @ManyToOne(
-    () => TblDesbloqueosPropsAv,
-    (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.tblAsistenteVirtuals2
+    () => CatPropPersonalizacion,
+    (catPropPersonalizacion) => catPropPersonalizacion.tblAsistenteVirtuals2
   )
-  @JoinColumn([{ name: "idColor", referencedColumnName: "idDesbloqueosAv" }])
-  idColor!: TblDesbloqueosPropsAv;
+  @JoinColumn([
+    { name: "idColor", referencedColumnName: "idPropPersonalizacion" },
+  ])
+  idColor!: CatPropPersonalizacion;
 
   @ManyToOne(
-    () => TblDesbloqueosPropsAv,
-    (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.tblAsistenteVirtuals3
+    () => CatPropPersonalizacion,
+    (catPropPersonalizacion) => catPropPersonalizacion.tblAsistenteVirtuals3
   )
-  @JoinColumn([{ name: "idPatron", referencedColumnName: "idDesbloqueosAv" }])
-  idPatron!: TblDesbloqueosPropsAv;
+  @JoinColumn([
+    { name: "idPatron", referencedColumnName: "idPropPersonalizacion" },
+  ])
+  idPatron!: CatPropPersonalizacion;
 
   @ManyToOne(
-    () => TblDesbloqueosPropsAv,
-    (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.tblAsistenteVirtuals4
+    () => CatPropPersonalizacion,
+    (catPropPersonalizacion) => catPropPersonalizacion.tblAsistenteVirtuals4
   )
-  @JoinColumn([{ name: "idPrenda", referencedColumnName: "idDesbloqueosAv" }])
-  idPrenda!: TblDesbloqueosPropsAv;
+  @JoinColumn([
+    { name: "idPrenda", referencedColumnName: "idPropPersonalizacion" },
+  ])
+  idPrenda!: CatPropPersonalizacion;
 
   @ManyToOne(
-    () => TblDesbloqueosPropsAv,
-    (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.tblAsistenteVirtuals5
+    () => CatPropPersonalizacion,
+    (catPropPersonalizacion) => catPropPersonalizacion.tblAsistenteVirtuals5
   )
-  @JoinColumn([{ name: "idSpecial", referencedColumnName: "idDesbloqueosAv" }])
-  idSpecial!: TblDesbloqueosPropsAv;
+  @JoinColumn([
+    { name: "idSpecial", referencedColumnName: "idPropPersonalizacion" },
+  ])
+  idSpecial!: CatPropPersonalizacion;
 
   @OneToMany(
     () => TblDesbloqueosPropsAv,
     (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.idAv
   )
-  tblDesbloqueosPropsAvs!: TblDesbloqueosPropsAv[];
+  tblDesbloqueosPropsAvs?: TblDesbloqueosPropsAv[];
 }

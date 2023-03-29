@@ -23,5 +23,5 @@ export class TblAnalisisDeDatos {
     () => TblReporteAnalisisDatos,
     (tblReporteAnalisisDatos) => tblReporteAnalisisDatos.idAnalisisDatos
   )
-  tblReporteAnalisisDatos!: TblReporteAnalisisDatos[];
+  tblReporteAnalisisDatos?: TblReporteAnalisisDatos[];
 }

@@ -1,5 +1,6 @@
 import express from "express"
-import PingController from "../controllers/ping"
+
+import TblAlumnoController from "./TblAlumno.router"
 import CatMateriaRouter from "./CatMateria.router"
 import CatTipoPersonalizacion from "./CatTipoPersonalizacion.router"
 import CatTipoDesbloqueo  from "./CatTipoDesbloqueo.router"
@@ -11,7 +12,9 @@ import CatDesafioDiarioController from "./CatDesafioDiario.router"
 import CatDatoCuriosoController from "./CatDatoCurioso.router"
 import CatContenidoMateriasController from "./CatContenidoMaterias.router"
 import CatActividadPPBController from "./CatActividadPPB.router"
-import TblAlumnoController from "./TblAlumno.router"
+
+import PingController from "../controllers/ping"
+
 
 const router = express.Router()
 

@@ -11,5 +11,5 @@ export class CatEscuela {
   nombre!: string | null;
 
   @OneToMany(() => TblAlumno, (tblAlumno) => tblAlumno.cct)
-  tblAlumnos!: TblAlumno[];
+  tblAlumnos?: TblAlumno[];
 }

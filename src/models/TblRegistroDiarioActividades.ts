@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
 import { TblDesafioDiarioAlumno } from "./TblDesafioDiarioAlumno";
+import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
 
 @Index("PK_TBL_RegistroDiarioActividades", ["idRegistroActividades"], {
   unique: true,
@@ -24,6 +24,16 @@ export class TblRegistroDiarioActividades {
   fecha!: number | null;
 
   @ManyToOne(
+    () => TblDesafioDiarioAlumno,
+    (tblDesafioDiarioAlumno) =>
+      tblDesafioDiarioAlumno.tblRegistroDiarioActividades
+  )
+  @JoinColumn([
+    { name: "idDesafioDiario", referencedColumnName: "idDesafioAlumno" },
+  ])
+  idDesafioDiario!: TblDesafioDiarioAlumno;
+
+  @ManyToOne(
     () => TblTareasDiariasAlumno,
     (tblTareasDiariasAlumno) =>
       tblTareasDiariasAlumno.tblRegistroDiarioActividades
@@ -35,14 +45,4 @@ export class TblRegistroDiarioActividades {
     },
   ])
   idActividadesDiariasAlumno!: TblTareasDiariasAlumno;
-
-  @ManyToOne(
-    () => TblDesafioDiarioAlumno,
-    (tblDesafioDiarioAlumno) =>
-      tblDesafioDiarioAlumno.tblRegistroDiarioActividades
-  )
-  @JoinColumn([
-    { name: "idDesafioDiario", referencedColumnName: "idDesafioAlumno" },
-  ])
-  idDesafioDiario!: TblDesafioDiarioAlumno;
 }

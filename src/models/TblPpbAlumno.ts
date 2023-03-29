@@ -2,9 +2,9 @@ import {
   Column,
   Entity,
   Index,
+  JoinColumn,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { TblAlumno } from "./TblAlumno";
@@ -16,9 +16,6 @@ export class TblPpbAlumno {
   @PrimaryGeneratedColumn({ type: "int", name: "idPPBAlumno" })
   idPpbAlumno!: number;
 
-  @Column("int", { name: "idAlumno" })
-  idAlumno!: number;
-
   @Column("int", { name: "IndiceAtencion" })
   indiceAtencion!: number;
 
@@ -28,15 +25,13 @@ export class TblPpbAlumno {
   @Column("int", { name: "IndicePercepcion" })
   indicePercepcion!: number;
 
+  @ManyToOne(() => TblAlumno, (tblAlumno) => tblAlumno.tblPpbAlumnos)
+  @JoinColumn([{ name: "idAlumno", referencedColumnName: "idAlumno" }])
+  idAlumno!: TblAlumno;
+
   @OneToMany(
     () => TblReporteAnalisisDatos,
     (tblReporteAnalisisDatos) => tblReporteAnalisisDatos.idPpbAlumno
   )
-  tblReporteAnalisisDatos!: TblReporteAnalisisDatos[];
-
-  @OneToOne(
-    () => TblAlumno,
-    (tblAlumno) => tblAlumno.idAlumno
-  )
-  tblAlumno!: TblAlumno[];
+  tblReporteAnalisisDatos?: TblReporteAnalisisDatos[];
 }

@@ -26,17 +26,17 @@ export class CatTareaDiaria {
     () => TblTareasDiariasAlumno,
     (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idTarea
   )
-  tblTareasDiariasAlumnos!: TblTareasDiariasAlumno[];
+  tblTareasDiariasAlumnos?: TblTareasDiariasAlumno[];
 
   @OneToMany(
     () => TblTareasDiariasAlumno,
     (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idTarea2
   )
-  tblTareasDiariasAlumnos2!: TblTareasDiariasAlumno[];
+  tblTareasDiariasAlumnos2?: TblTareasDiariasAlumno[];
 
   @OneToMany(
     () => TblTareasDiariasAlumno,
     (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idTarea3
   )
-  tblTareasDiariasAlumnos3!: TblTareasDiariasAlumno[];
+  tblTareasDiariasAlumnos3?: TblTareasDiariasAlumno[];
 }

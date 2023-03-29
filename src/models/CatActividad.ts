@@ -19,7 +19,7 @@ export class CatActividad {
   nombreActividad!: string;
 
   @Column("nvarchar", { name: "Descripcion", nullable: true })
-  descripcion?: string | null;
+  descripcion!: string | null;
 
   @OneToMany(
     () => CatActividadPpb,

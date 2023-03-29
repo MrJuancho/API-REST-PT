@@ -21,7 +21,7 @@ export class TblTareasDiariasAlumno {
     (tblRegistroDiarioActividades) =>
       tblRegistroDiarioActividades.idActividadesDiariasAlumno
   )
-  tblRegistroDiarioActividades!: TblRegistroDiarioActividades[];
+  tblRegistroDiarioActividades?: TblRegistroDiarioActividades[];
 
   @ManyToOne(() => TblAlumno, (tblAlumno) => tblAlumno.tblTareasDiariasAlumnos)
   @JoinColumn([{ name: "idAlumno", referencedColumnName: "idAlumno" }])

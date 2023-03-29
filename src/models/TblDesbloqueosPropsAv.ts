@@ -4,11 +4,10 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
 import { CatPropPersonalizacion } from "./CatPropPersonalizacion";
+import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
 
 @Index("PK_TBL_DesbloqueosPropsAV", ["idDesbloqueosAv"], { unique: true })
 @Entity("TBL_DesbloqueosPropsAV", { schema: "dbo" })
@@ -17,40 +16,10 @@ export class TblDesbloqueosPropsAv {
   idDesbloqueosAv!: number;
 
   @Column("datetime", { name: "FechaDesbloqueo", nullable: true })
-  fechaDesbloqueo!: Date | null;
+  fechaDesbloqueo?: Date | null;
 
   @Column("bit", { name: "Desbloqueado", nullable: true })
-  desbloqueado!: boolean | null;
-
-  @OneToMany(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.idCara
-  )
-  tblAsistenteVirtuals!: TblAsistenteVirtual[];
-
-  @OneToMany(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.idColor
-  )
-  tblAsistenteVirtuals2!: TblAsistenteVirtual[];
-
-  @OneToMany(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.idPatron
-  )
-  tblAsistenteVirtuals3!: TblAsistenteVirtual[];
-
-  @OneToMany(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.idPrenda
-  )
-  tblAsistenteVirtuals4!: TblAsistenteVirtual[];
-
-  @OneToMany(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.idSpecial
-  )
-  tblAsistenteVirtuals5!: TblAsistenteVirtual[];
+  desbloqueado?: boolean | null;
 
   @ManyToOne(
     () => CatPropPersonalizacion,
