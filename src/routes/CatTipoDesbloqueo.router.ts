@@ -13,7 +13,7 @@ router.get("/:name",async (req, res) => {
     const controller = new CatTipoDesbloqueoController();
     const response = await controller.getTipoDesbloqueo(req.params.name);
 
-    if(!response) res.status(404).send({ message: "No existe el Tipo de Desbloqueo especificado"})
+    if(!response) return res.status(404).send({ message: "No existe el Tipo de Desbloqueo especificado"})
     return res.send(response)
 })
 

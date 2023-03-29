@@ -13,7 +13,7 @@ router.get("/:name",async (req, res) => {
     const controller = new CatTipoPersonalizacion();
     const response = await controller.getTipoPersonalizacion(req.params.name);
 
-    if(!response) res.status(404).send({ message: "No existe el tipo de personalizacion especificado"})
+    if(!response) return res.status(404).send({ message: "No existe el tipo de personalizacion especificado"})
     return res.send(response)
 })
 

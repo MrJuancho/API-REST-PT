@@ -1096,6 +1096,252 @@
 					}
 				]
 			}
+		},
+		"/actividades": {
+			"get": {
+				"operationId": "GetActividades",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatActividad"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatActividad"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/actividades/{name}": {
+			"get": {
+				"operationId": "GetActividad",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatActividad"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatActividad"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/escuelas": {
+			"get": {
+				"operationId": "GetEscuelas",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatEscuela"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatEscuela"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/escuelas/{name}": {
+			"get": {
+				"operationId": "GetEscuela",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatEscuela"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatEscuela"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/tareaDiaria": {
+			"get": {
+				"operationId": "GetTareasDiarias",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatTareaDiaria"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatTareaDiaria"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/tareaDiaria/{idTareaDiaria}": {
+			"get": {
+				"operationId": "GetTareaDiaria",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatTareaDiaria"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatTareaDiaria"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idTareaDiaria",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/desafioDiario": {
+			"get": {
+				"operationId": "GetDesafiosDiarios",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatDesafioDiario"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatDesafioDiario"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/desafioDiario/{idDesafioDiario}": {
+			"get": {
+				"operationId": "GetDesafioDiario",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatDesafioDiario"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatDesafioDiario"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idDesafioDiario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
 		}
 	},
 	"servers": [

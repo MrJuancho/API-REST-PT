@@ -13,7 +13,7 @@ router.get("/:name",async (req, res) => {
     const controller = new CatMateriaController();
     const response = await controller.getMateria(req.params.name);
 
-    if(!response) res.status(404).send({ message: "No existe la materia especificada"})
+    if(!response) return res.status(404).send({ message: "No existe la materia especificada"})
     return res.send(response)
 })
 
