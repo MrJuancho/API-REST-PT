@@ -1,7 +1,8 @@
 import { Get, Route, Tags, Path, Body, Request, Post, Put } from "tsoa"
 import { TblAlumno } from "../models"
 import {
-    getAlumnoByUsername
+    getAlumnoByUsername,
+    getAlumnos
 
 } from "../repositories/TblAlumno"
 
@@ -13,8 +14,8 @@ export default class TblAlumnoController {
         return getAlumnoByUsername(nombre)
     }
 
-    /* @Get("/:idDatoCurioso")
-    public async getDatoCurioso(@Path() idDatoCurioso: number): Promise<TblAlumno | null>{
-        return getDatoCurioso(idDatoCurioso)
-    } */
+    @Get("/")
+    public async getAlumnos(): Promise<Array<TblAlumno>>{
+        return getAlumnos()
+    }
 }
