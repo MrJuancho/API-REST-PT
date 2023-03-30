@@ -9,13 +9,13 @@ import {
 @Route("alumno")
 @Tags("TblAlumno")
 export default class TblAlumnoController {
-    @Get("/:nombre")
-    public async getAlumnoByUsername(@Path() nombre: string): Promise<TblAlumno | null> {
-        return getAlumnoByUsername(nombre)
-    }
-
     @Get("/")
     public async getAlumnos(): Promise<Array<TblAlumno>>{
         return getAlumnos()
+    }
+
+    @Get("/:nombre")
+    public async getAlumnoByUsername(@Path() nombre: string): Promise<TblAlumno | null> {
+        return getAlumnoByUsername(nombre)
     }
 }
