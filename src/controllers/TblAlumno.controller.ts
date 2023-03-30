@@ -14,8 +14,8 @@ export default class TblAlumnoController {
         return getAlumnos()
     }
 
-    @Get("/:nombre")
-    public async getAlumnoByUsername(@Path() nombre: string): Promise<TblAlumno | null> {
-        return getAlumnoByUsername(nombre)
+    @Get("/:username")
+    public async getAlumnoByUsername(@Path() username: string): Promise<TblAlumno | null> {
+        return getAlumnoByUsername(username)
     }
 }
