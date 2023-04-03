@@ -10,10 +10,17 @@ router.get("/", async ( _req , res ) => {
 })
 
 router.get("/:nombre",async (req, res) => {
-    const controller = new CatAlumnoController();
-    const response = await controller.getAlumnoByUsername(req.params.nombre);
+    const controller = new CatAlumnoController()
+    const response = await controller.getAlumnoByUsername(req.params.nombre)
 
     if(!response) return res.status(404).send({ message: "No existe el nombre de usuario del alumno especificado"})
+    return res.send(response)
+})
+
+router.put("/:nombre", async (req,res) => {
+    const controller = new CatAlumnoController()
+    const response = await controller.updateAlumnoCreds(req.body)
+
     return res.send(response)
 })
 

@@ -783,6 +783,55 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"AlumnoCreditsInterface": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"monedas": {
+						"type": "number",
+						"format": "double"
+					},
+					"estrellas": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"username",
+					"monedas",
+					"estrellas"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdatePpbPayload": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"atencion": {
+						"type": "number",
+						"format": "double"
+					},
+					"memoria": {
+						"type": "number",
+						"format": "double"
+					},
+					"percepcion": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"username",
+					"atencion",
+					"memoria",
+					"percepcion"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"PingResponse": {
 				"properties": {
 					"message": {
@@ -867,6 +916,54 @@
 						}
 					}
 				]
+			},
+			"put": {
+				"operationId": "UpdateAlumnoCreds",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"TblAlumno"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AlumnoCreditsInterface"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/alumnoppb/{nombre}": {
+			"put": {
+				"operationId": "UpdatePPBAlumno",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"PPB Alumno"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdatePpbPayload"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/materias": {

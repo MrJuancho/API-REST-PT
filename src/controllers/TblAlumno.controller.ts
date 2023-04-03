@@ -1,9 +1,10 @@
-import { Get, Route, Tags, Path, Body, Request, Post, Put } from "tsoa"
+import { Get, Route, Tags, Path, Body, Put } from "tsoa"
 import { TblAlumno } from "../models"
 import {
     getAlumnoByUsername,
-    getAlumnos
-
+    getAlumnos,
+    AlumnoCreditsInterface,
+    putAlumnoCreds
 } from "../repositories/TblAlumno"
 
 @Route("alumno")
@@ -17,5 +18,10 @@ export default class TblAlumnoController {
     @Get("/:username")
     public async getAlumnoByUsername(@Path() username: string): Promise<TblAlumno | null> {
         return getAlumnoByUsername(username)
+    }
+
+    @Put("/:username")
+    public async updateAlumnoCreds(@Body() payload: AlumnoCreditsInterface): Promise<void> {
+        return putAlumnoCreds(payload)
     }
 }

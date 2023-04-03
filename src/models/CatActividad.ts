@@ -2,9 +2,12 @@ import {
   Column,
   Entity,
   Index,
+  JoinColumn,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { CatTipoActividad } from "./CatTipoActividad";
 import { CatActividadPpb } from "./CatActividadPpb";
 import { CatDatoCurioso } from "./CatDatoCurioso";
 import { TblResultadosActividad } from "./TblResultadosActividad";
@@ -20,6 +23,15 @@ export class CatActividad {
 
   @Column("nvarchar", { name: "Descripcion", nullable: true })
   descripcion!: string | null;
+
+  @ManyToOne(
+    () => CatTipoActividad,
+    (catTipoActividad) => catTipoActividad.catActividads
+  )
+  @JoinColumn([
+    { name: "idTipoActividad", referencedColumnName: "idTipoActividad" },
+  ])
+  idTipoActividad!: CatTipoActividad;
 
   @OneToMany(
     () => CatActividadPpb,

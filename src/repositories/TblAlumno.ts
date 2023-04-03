@@ -1,5 +1,5 @@
 import db from "../config/database"
-import { TblAlumno } from "../models"
+import { TblAlumno} from "../models"
 
 export interface AlumnoDataPayload {
     nombre : string,
@@ -13,6 +13,12 @@ export interface AlumnoDataPayload {
     balanceEstrellas: Number
 }
 
+export interface AlumnoCreditsInterface {
+    username : string,
+    monedas : number,
+    estrellas : number
+}
+
 export const getAlumnos = async () : Promise<Array<TblAlumno>> => {
     const alumnoRepository = db.getRepository(TblAlumno)
     return alumnoRepository.find()
@@ -24,6 +30,19 @@ export const getAlumnoByUsername = async (username : string) : Promise<TblAlumno
 
     if(!alumno) return null
     return alumno
+}
+
+export const putAlumnoCreds = async (payload :  AlumnoCreditsInterface) : Promise<void> => {
+    const alumnoRepo = db.getRepository(TblAlumno)
+
+    const alumnoActual = await alumnoRepo.findOne({ where: { nombreUsuario: payload.username}})
+    const estrellasAct = alumnoActual!.balanceEstrellas
+    const monedasAct = alumnoActual!.balanceMonedas
+
+    const nuevasEstrellas = estrellasAct + payload.estrellas
+    const nuevasMonedas = monedasAct + payload.monedas
+
+    alumnoRepo.update({ nombreUsuario: payload.username }, { balanceEstrellas: nuevasEstrellas, balanceMonedas: nuevasMonedas })
 }
 
 //export const createAlumno = async (payload : AlumnoDataPayload): Promise<TblAlumno> => {

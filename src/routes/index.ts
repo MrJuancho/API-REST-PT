@@ -1,6 +1,7 @@
 import express from "express"
 
 import TblAlumnoController from "./TblAlumno.router"
+import TblPpbAlumnoController from "./TblPpbAlumno.router"
 import CatMateriaRouter from "./CatMateria.router"
 import CatTipoPersonalizacion from "./CatTipoPersonalizacion.router"
 import CatTipoDesbloqueo  from "./CatTipoDesbloqueo.router"
@@ -30,6 +31,7 @@ router.use("/datoCurioso", CatDatoCuriosoController)
 router.use("/contenidoMaterias", CatContenidoMateriasController)
 router.use("/actividadPPB", CatActividadPPBController)
 router.use("/alumno", TblAlumnoController)
+router.use("/alumnoppb", TblPpbAlumnoController)
 
 
 router.get("/ping", async (_req, res) => {
