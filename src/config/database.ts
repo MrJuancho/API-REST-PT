@@ -9,7 +9,8 @@ import { CatMateria, CatActividad,
         TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
         TblPpbAlumno, TblRegistroDiarioActividades,
         TblReporteAnalisisDatos, TblResultadosActividad,
-        TblTareasDiariasAlumno } from "../models";
+        TblTareasDiariasAlumno, 
+        CatTipoActividad} from "../models";
 
 export const db = new DataSource({
     type: "mssql",
@@ -23,7 +24,7 @@ export const db = new DataSource({
     entities: [CatMateria, CatActividad, CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
               CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo, CatTipoPersonalizacion, TblAlumno,
               TblAsistenteVirtual, TblAnalisisDeDatos, TblDesafioDiarioAlumno, TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
-              TblPpbAlumno, TblRegistroDiarioActividades, TblReporteAnalisisDatos, TblResultadosActividad, TblTareasDiariasAlumno],
+              TblPpbAlumno, TblRegistroDiarioActividades, TblReporteAnalisisDatos, TblResultadosActividad, TblTareasDiariasAlumno, CatTipoActividad],
     synchronize: false,
     options:{
       connectTimeout:5000,

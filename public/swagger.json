@@ -597,6 +597,9 @@
 						"type": "string",
 						"nullable": true
 					},
+					"idTipoActividad": {
+						"$ref": "#/components/schemas/CatTipoActividad"
+					},
 					"catActividadPpbs": {
 						"items": {
 							"$ref": "#/components/schemas/CatActividadPpb"
@@ -620,9 +623,33 @@
 					"idActividad",
 					"nombreActividad",
 					"descripcion",
+					"idTipoActividad",
 					"catActividadPpbs",
 					"catDatoCuriosos",
 					"tblResultadosActividads"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatTipoActividad": {
+				"properties": {
+					"idTipoActividad": {
+						"type": "number",
+						"format": "double"
+					},
+					"descripcionTipoActividad": {
+						"type": "string"
+					},
+					"catActividads": {
+						"items": {
+							"$ref": "#/components/schemas/CatActividad"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idTipoActividad",
+					"descripcionTipoActividad"
 				],
 				"type": "object",
 				"additionalProperties": false

@@ -19,6 +19,7 @@ import { TblRegistroDiarioActividades } from "./TblRegistroDiarioActividades"
 import { TblReporteAnalisisDatos} from "./TblReporteAnalisisDatos"
 import { TblResultadosActividad } from "./TblResultadosActividad"
 import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno"
+import { CatTipoActividad } from "./CatTipoActividad"
 
 export { CatMateria, CatContenidoMaterias,
     CatActividad, CatActividadPpb,
@@ -30,4 +31,4 @@ export { CatMateria, CatContenidoMaterias,
     TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
     TblPpbAlumno, TblRegistroDiarioActividades,
     TblReporteAnalisisDatos, TblResultadosActividad,
-    TblTareasDiariasAlumno }
+    TblTareasDiariasAlumno, CatTipoActividad }
