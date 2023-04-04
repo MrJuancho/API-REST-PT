@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { CatActividad } from "./CatActividad";
+import { CatContenidoMaterias } from "./CatContenidoMaterias";
 
 @Index("PK_CAT_DatoCurioso", ["idDatoCurioso"], { unique: true })
 @Entity("CAT_DatoCurioso", { schema: "dbo" })
@@ -17,7 +17,12 @@ export class CatDatoCurioso {
   @Column("nvarchar", { name: "DescripcionDatos", nullable: true })
   descripcionDatos!: string | null;
 
-  @ManyToOne(() => CatActividad, (catActividad) => catActividad.catDatoCuriosos)
-  @JoinColumn([{ name: "idActividad", referencedColumnName: "idActividad" }])
-  idActividad!: CatActividad;
+  @ManyToOne(
+    () => CatContenidoMaterias,
+    (catContenidoMaterias) => catContenidoMaterias.catDatoCuriosos
+  )
+  @JoinColumn([
+    { name: "idContenidoMateria", referencedColumnName: "idContenidoMateria" },
+  ])
+  idContenidoMateria!: CatContenidoMaterias;
 }

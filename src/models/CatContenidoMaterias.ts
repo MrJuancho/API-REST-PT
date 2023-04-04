@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { CatActividadPpb } from "./CatActividadPpb";
 import { CatMateria } from "./CatMateria";
+import { CatDatoCurioso } from "./CatDatoCurioso";
 
 @Index("PK_CAT_ContenidoMaterias", ["idContenidoMateria"], { unique: true })
 @Entity("CAT_ContenidoMaterias", { schema: "dbo" })
@@ -31,4 +32,10 @@ export class CatContenidoMaterias {
   @ManyToOne(() => CatMateria, (catMateria) => catMateria.catContenidoMaterias)
   @JoinColumn([{ name: "idMateria", referencedColumnName: "idMateria" }])
   idMateria!: CatMateria;
+
+  @OneToMany(
+    () => CatDatoCurioso,
+    (catDatoCurioso) => catDatoCurioso.idContenidoMateria
+  )
+  catDatoCuriosos!: CatDatoCurioso[];
 }

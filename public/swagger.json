@@ -606,12 +606,6 @@
 						},
 						"type": "array"
 					},
-					"catDatoCuriosos": {
-						"items": {
-							"$ref": "#/components/schemas/CatDatoCurioso"
-						},
-						"type": "array"
-					},
 					"tblResultadosActividads": {
 						"items": {
 							"$ref": "#/components/schemas/TblResultadosActividad"
@@ -625,7 +619,6 @@
 					"descripcion",
 					"idTipoActividad",
 					"catActividadPpbs",
-					"catDatoCuriosos",
 					"tblResultadosActividads"
 				],
 				"type": "object",
@@ -717,6 +710,12 @@
 					},
 					"idMateria": {
 						"$ref": "#/components/schemas/CatMateria"
+					},
+					"catDatoCuriosos": {
+						"items": {
+							"$ref": "#/components/schemas/CatDatoCurioso"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
@@ -724,7 +723,8 @@
 					"bloque",
 					"descripcion",
 					"catActividadPpbs",
-					"idMateria"
+					"idMateria",
+					"catDatoCuriosos"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -762,14 +762,14 @@
 						"type": "string",
 						"nullable": true
 					},
-					"idActividad": {
-						"$ref": "#/components/schemas/CatActividad"
+					"idContenidoMateria": {
+						"$ref": "#/components/schemas/CatContenidoMaterias"
 					}
 				},
 				"required": [
 					"idDatoCurioso",
 					"descripcionDatos",
-					"idActividad"
+					"idContenidoMateria"
 				],
 				"type": "object",
 				"additionalProperties": false
