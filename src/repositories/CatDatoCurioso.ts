@@ -13,3 +13,12 @@ export const getDatoCurioso = async (id : number): Promise<CatDatoCurioso | null
     if(!datoCurioso) return null
     return datoCurioso
 }
+
+export const getDatosCuriososByContenido = async (idContenidoM : number) : Promise<Array<CatDatoCurioso>> => {
+    const datoCuriosoRepo = db.getRepository(CatDatoCurioso)
+    const datosCuriosos = await datoCuriosoRepo.createQueryBuilder()
+                        .where("idContenidoMateria = :idContenido", { idContenido : idContenidoM })
+                        .getMany()
+
+    return datosCuriosos
+}

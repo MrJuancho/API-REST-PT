@@ -11,6 +11,7 @@ import CatEscuelaController from "./CatEscuela.router"
 import CatTareaDiariaController from "./CatTareaDiaria.router"
 import CatDesafioDiarioController from "./CatDesafioDiario.router"
 import CatDatoCuriosoController from "./CatDatoCurioso.router"
+import CatDatoCuriosoContenidoController from "./CatDatoCuriosoContenido.router"
 import CatContenidoMateriasController from "./CatContenidoMaterias.router"
 import CatActividadPPBController from "./CatActividadPPB.router"
 
@@ -28,6 +29,7 @@ router.use("/escuelas", CatEscuelaController)
 router.use("/tareaDiaria", CatTareaDiariaController)
 router.use("/desafioDiario", CatDesafioDiarioController)
 router.use("/datoCurioso", CatDatoCuriosoController)
+router.use("/datoCuriosoContenido", CatDatoCuriosoContenidoController)
 router.use("/contenidoMaterias", CatContenidoMateriasController)
 router.use("/actividadPPB", CatActividadPPBController)
 router.use("/alumno", TblAlumnoController)

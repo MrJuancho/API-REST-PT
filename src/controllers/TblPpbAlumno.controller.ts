@@ -4,7 +4,7 @@ import { TblPpbAlumno } from "../models"
 import {
     putAlumnoPpb,
     UpdatePpbPayload
-} from "../repositories/TBL_PpbAlumno"
+} from "../repositories/TBLPpbAlumno"
 
 @Route("alumnoppb")
 @Tags("PPB Alumno")

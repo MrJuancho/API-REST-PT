@@ -2,7 +2,7 @@ import { Get, Route, Tags, Path } from "tsoa"
 import { CatDatoCurioso } from "../models"
 import {
     getDatosCuriosos,
-    getDatoCurioso
+    getDatoCurioso,
 } from "../repositories/CatDatoCurioso"
 
 @Route("datoCurioso")
