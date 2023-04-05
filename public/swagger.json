@@ -1201,7 +1201,7 @@
 				"parameters": []
 			}
 		},
-		"/props/{name}": {
+		"/props/{id}": {
 			"get": {
 				"operationId": "GetPropPersonalizacion",
 				"responses": {
@@ -1228,7 +1228,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "name",
+						"name": "id",
 						"required": true,
 						"schema": {
 							"type": "string"

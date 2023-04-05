@@ -13,8 +13,8 @@ export default class CatPropPersonalizacionController {
         return getAllPropsPersonalizacion()
     }
 
-    @Get("/:name")
-    public async getPropPersonalizacion(@Path() name: string): Promise<CatPropPersonalizacion | null>{
-        return getPropPersonalizacion(name)
+    @Get("/:id")
+    public async getPropPersonalizacion(@Path() id: string): Promise<CatPropPersonalizacion | null>{
+        return getPropPersonalizacion(Number(id))
     }
 }

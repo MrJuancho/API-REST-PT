@@ -6,9 +6,9 @@ export const getAllPropsPersonalizacion = async () : Promise<Array<CatPropPerson
     return propspersonalizacionRepo.find();
 }
 
-export const getPropPersonalizacion = async (name : string) : Promise<CatPropPersonalizacion | null> => {
+export const getPropPersonalizacion = async (id : number) : Promise<CatPropPersonalizacion | null> => {
     const propRepo = db.getRepository(CatPropPersonalizacion)
-    const prop = await propRepo.findOne({ where: { nomProp : name }})
+    const prop = await propRepo.findOne({ where: { idPropPersonalizacion : id }})
 
     if(!prop) return null
     return prop
