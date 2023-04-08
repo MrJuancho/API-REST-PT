@@ -859,6 +859,40 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"ViewDetalleProps": {
+				"properties": {
+					"idPropPersonalizacion": {
+						"type": "number",
+						"format": "double"
+					},
+					"Nom_Prop": {
+						"type": "string"
+					},
+					"Desc_Prop": {
+						"type": "string"
+					},
+					"Desc_TipoPersonalizacion": {
+						"type": "string"
+					},
+					"Desc_TipoDebloqueo": {
+						"type": "string"
+					},
+					"Costo": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"idPropPersonalizacion",
+					"Nom_Prop",
+					"Desc_Prop",
+					"Desc_TipoPersonalizacion",
+					"Desc_TipoDebloqueo",
+					"Costo"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"PingResponse": {
 				"properties": {
 					"message": {
@@ -1699,6 +1733,67 @@
 						"schema": {
 							"format": "double",
 							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/detalleProps": {
+			"get": {
+				"operationId": "GetAllDetalleProps",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ViewDetalleProps"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"ViewDetalleProps"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/detalleProps/{id}": {
+			"get": {
+				"operationId": "GetDetalleProps",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/ViewDetalleProps"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"ViewDetalleProps"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]

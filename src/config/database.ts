@@ -9,7 +9,7 @@ import { CatMateria, CatActividad,
         TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
         TblPpbAlumno, TblRegistroDiarioActividades,
         TblReporteAnalisisDatos, TblResultadosActividad,
-        TblTareasDiariasAlumno, 
+        TblTareasDiariasAlumno, ViewDetalleProps,
         CatTipoActividad} from "../models";
 
 export const db = new DataSource({
@@ -24,7 +24,8 @@ export const db = new DataSource({
     entities: [CatMateria, CatActividad, CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
               CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo, CatTipoPersonalizacion, TblAlumno,
               TblAsistenteVirtual, TblAnalisisDeDatos, TblDesafioDiarioAlumno, TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
-              TblPpbAlumno, TblRegistroDiarioActividades, TblReporteAnalisisDatos, TblResultadosActividad, TblTareasDiariasAlumno, CatTipoActividad],
+              TblPpbAlumno, TblRegistroDiarioActividades, TblReporteAnalisisDatos, TblResultadosActividad, TblTareasDiariasAlumno,
+              CatTipoActividad, ViewDetalleProps],
     synchronize: false,
     options:{
       connectTimeout:5000,

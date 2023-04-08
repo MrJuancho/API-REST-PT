@@ -10,11 +10,11 @@ router.get("/", async ( _req , res ) => {
 })
 
 router.get("/:id",async (req, res) => {
-    const controller = new CatPropPersonalizacionController();
-    const response = await controller.getPropPersonalizacion(req.params.id);
+    const controller = new CatPropPersonalizacionController()
+    const response = await controller.getPropPersonalizacion(req.params.id)
 
     if(!response) return res.status(404).send({ message: "No existe el Prop especificado"})
     return res.send(response)
 })
 
-export default router;
+export default router
