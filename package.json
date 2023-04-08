@@ -12,7 +12,7 @@
     "swagger": "tsoa spec"
   },
   "keywords": [],
-  "author": "",
+  "author": "Juan Carlos Calderon Davila and Carlos Alberto Catarino Corralco",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.17",
