@@ -1,4 +1,3 @@
-import internal from "stream"
 import { ViewEntity, ViewColumn } from "typeorm"
 
 @ViewEntity("VIEW_DetallePPBAlumno", {

@@ -15,6 +15,8 @@ import CatDatoCuriosoContenidoController from "./CatDatoCuriosoContenido.router"
 import CatContenidoMateriasController from "./CatContenidoMaterias.router"
 import CatActividadPPBController from "./CatActividadPPB.router"
 import ViewDetallePropsController from "./ViewDetalleProps.router"
+import ViewDetalleActividadController from "./ViewDetalleActividad.router"
+import ViewDetalleActividadTipoActividadController from "./ViewDetalleActividad.router"
 
 import PingController from "../controllers/ping"
 
@@ -36,6 +38,8 @@ router.use("/actividadPPB", CatActividadPPBController)
 router.use("/alumno", TblAlumnoController)
 router.use("/alumnoppb", TblPpbAlumnoController)
 router.use("/detalleProps", ViewDetallePropsController)
+router.use("/detalleActividad", ViewDetalleActividadController)
+router.use("/detalleActividadTipoActividad", ViewDetalleActividadTipoActividadController)
 
 
 router.get("/ping", async (_req, res) => {

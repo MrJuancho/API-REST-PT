@@ -893,6 +893,64 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"ViewDetalleActividad": {
+				"properties": {
+					"idActividad": {
+						"type": "number",
+						"format": "double"
+					},
+					"NombreActividad": {
+						"type": "string"
+					},
+					"Descripcion": {
+						"type": "string"
+					},
+					"IndiceMemoria": {
+						"type": "number",
+						"format": "double"
+					},
+					"IndicePercepcion": {
+						"type": "number",
+						"format": "double"
+					},
+					"IndiceAtencion": {
+						"type": "number",
+						"format": "double"
+					},
+					"IndiceDificultad": {
+						"type": "number",
+						"format": "double"
+					},
+					"DescripcionTipoActividad": {
+						"type": "string"
+					},
+					"DescripcionMateria": {
+						"type": "string"
+					},
+					"DescripcionContenido": {
+						"type": "string"
+					},
+					"Bloque": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"idActividad",
+					"NombreActividad",
+					"Descripcion",
+					"IndiceMemoria",
+					"IndicePercepcion",
+					"IndiceAtencion",
+					"IndiceDificultad",
+					"DescripcionTipoActividad",
+					"DescripcionMateria",
+					"DescripcionContenido",
+					"Bloque"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"PingResponse": {
 				"properties": {
 					"message": {
@@ -914,7 +972,9 @@
 		"license": {
 			"name": "ISC"
 		},
-		"contact": {}
+		"contact": {
+			"name": "Juan Carlos Calderon Davila and Carlos Alberto Catarino Corralco"
+		}
 	},
 	"openapi": "3.0.0",
 	"paths": {
@@ -1791,6 +1851,103 @@
 					{
 						"in": "path",
 						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/detalleActividad": {
+			"get": {
+				"operationId": "GetActividades",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ViewDetalleActividad"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"ViewDetalleActividad"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/detalleActividad/{id}": {
+			"get": {
+				"operationId": "GetActividad",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/ViewDetalleActividad"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"ViewDetalleActividad"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/detalleActividadTipoActividad/{name}": {
+			"get": {
+				"operationId": "GetActividadByTipoActividad",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/ViewDetalleActividad"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"ViewDetalleActividad"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "name",
 						"required": true,
 						"schema": {
 							"type": "string"

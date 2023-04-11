@@ -17,10 +17,11 @@ app.use(
     "/docs",
     swaggerUi.serve,
     swaggerUi.setup(undefined, {
+      customSiteTitle: "API Asistente Virtual",
       swaggerOptions: {
         url: "/swagger.json",
       },
-    })
+    }),
   )
 
   app.use(Router)
