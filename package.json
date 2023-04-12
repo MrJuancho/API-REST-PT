@@ -14,7 +14,7 @@
   "keywords": [],
   "engines" : {
     "npm" : ">=9.6.1",
-    "node" : ">=18.0.0 <18.15.0"
+    "node" : ">=18.5.0"
   },
   "author": "Juan Carlos Calderon Davila and Carlos Alberto Catarino Corralco",
   "license": "ISC",
