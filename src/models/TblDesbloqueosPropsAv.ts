@@ -18,9 +18,6 @@ export class TblDesbloqueosPropsAv {
   @Column("datetime", { name: "FechaDesbloqueo", nullable: true })
   fechaDesbloqueo?: Date | null;
 
-  @Column("bit", { name: "Desbloqueado", nullable: true })
-  desbloqueado?: boolean | null;
-
   @ManyToOne(
     () => CatPropPersonalizacion,
     (catPropPersonalizacion) => catPropPersonalizacion.tblDesbloqueosPropsAvs
