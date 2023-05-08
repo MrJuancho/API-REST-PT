@@ -11,7 +11,6 @@ import {
 export default class TblPpbAlumnoController {
     @Put("/:nombre")
     public async updatePPBAlumno(@Body() payload : UpdatePpbPayload): Promise<void> {
-        console.log("aquii")
         return putAlumnoPpb(payload)
     }
 }
