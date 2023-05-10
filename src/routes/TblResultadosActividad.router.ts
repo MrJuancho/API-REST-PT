@@ -17,3 +17,5 @@ router.post("/",async (req, res) => {
 
     return res.send(response)
 })
+
+export default router

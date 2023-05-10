@@ -1,5 +1,6 @@
 import express from "express"
 
+import TblResultadosActividad from "./TblResultadosActividad.router"
 import TblAlumnoController from "./TblAlumno.router"
 import TblPpbAlumnoController from "./TblPpbAlumno.router"
 import CatMateriaRouter from "./CatMateria.router"
@@ -40,6 +41,7 @@ router.use("/alumnoppb", TblPpbAlumnoController)
 router.use("/detalleProps", ViewDetallePropsController)
 router.use("/detalleActividad", ViewDetalleActividadController)
 router.use("/detalleActividadTipoActividad", ViewDetalleActividadTipoActividadController)
+router.use("/resultadoActividad",TblResultadosActividad)
 
 
 router.get("/ping", async (_req, res) => {
