@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { CatPropPersonalizacion } from "./CatPropPersonalizacion";
 import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
+import { CatPropPersonalizacion } from "./CatPropPersonalizacion";
 
 @Index("PK_TBL_DesbloqueosPropsAV", ["idDesbloqueosAv"], { unique: true })
 @Entity("TBL_DesbloqueosPropsAV", { schema: "dbo" })
@@ -16,7 +16,14 @@ export class TblDesbloqueosPropsAv {
   idDesbloqueosAv!: number;
 
   @Column("datetime", { name: "FechaDesbloqueo", nullable: true })
-  fechaDesbloqueo?: Date | null;
+  fechaDesbloqueo!: Date | null;
+
+  @ManyToOne(
+    () => TblAsistenteVirtual,
+    (tblAsistenteVirtual) => tblAsistenteVirtual.tblDesbloqueosPropsAvs
+  )
+  @JoinColumn([{ name: "idAV", referencedColumnName: "idAv" }])
+  idAv!: TblAsistenteVirtual;
 
   @ManyToOne(
     () => CatPropPersonalizacion,
@@ -29,11 +36,4 @@ export class TblDesbloqueosPropsAv {
     },
   ])
   idPropsPersonalizacion!: CatPropPersonalizacion;
-
-  @ManyToOne(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.tblDesbloqueosPropsAvs
-  )
-  @JoinColumn([{ name: "idAV", referencedColumnName: "idAv" }])
-  idAv!: TblAsistenteVirtual;
 }

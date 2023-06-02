@@ -7,12 +7,13 @@ export interface uploadActividadPayload {
     idAlumno: number,
     tiempoResolucion: Date,
     intentos: number,
-    asistencias: number
+    asistencias: number,
+    fecha: Date
 }
 
 export const getResultadoActividad = async (id : number) : Promise<TblResultadosActividad | null> => {
     const resRepo = db.getRepository(TblResultadosActividad);
-    const resultadoConsulta = resRepo.findOne({ where : {idActividadPpbAlumno : id}})
+    const resultadoConsulta = resRepo.findOne({ where : { idResultadosAlumno : id}})
 
     if(!resultadoConsulta) return null
     return resultadoConsulta
@@ -28,9 +29,10 @@ export const createResultado = async (payload : uploadActividadPayload) : Promis
     const Resultado = new TblResultadosActividad()
     Resultado.idActividad = Actividad!
     Resultado.idAlumno = Alumno!
-    Resultado.asistencias = payload.asistencias
+    Resultado.asistencia = payload.asistencias
     Resultado.intentos = payload.intentos
     Resultado.tiempoResolucion = payload.tiempoResolucion
+    Resultado.fechaRealizacion = payload.fecha
 
     return resRepo.save(Resultado)
 }

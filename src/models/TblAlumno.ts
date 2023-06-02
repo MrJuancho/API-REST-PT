@@ -9,10 +9,9 @@ import {
 } from "typeorm";
 import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
 import { CatEscuela } from "./CatEscuela";
-import { TblDesafioDiarioAlumno } from "./TblDesafioDiarioAlumno";
-import { TblPpbAlumno } from "./TblPpbAlumno";
+import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno";
+import { TblRegistroDiarioActividades } from "./TblRegistroDiarioActividades";
 import { TblResultadosActividad } from "./TblResultadosActividad";
-import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
 
 @Index("PK_TBL_Alumno", ["idAlumno"], { unique: true })
 @Entity("TBL_Alumno", { schema: "dbo" })
@@ -59,23 +58,20 @@ export class TblAlumno {
   cct!: CatEscuela;
 
   @OneToMany(
-    () => TblDesafioDiarioAlumno,
-    (tblDesafioDiarioAlumno) => tblDesafioDiarioAlumno.idAlumno
+    () => TblIndiceUcbAlumno,
+    (tblIndiceUcbAlumno) => tblIndiceUcbAlumno.idAlumno
   )
-  tblDesafioDiarioAlumnos?: TblDesafioDiarioAlumno[];
+  tblIndiceUcbAlumnos!: TblIndiceUcbAlumno[];
 
-  @OneToMany(() => TblPpbAlumno, (tblPpbAlumno) => tblPpbAlumno.idAlumno)
-  tblPpbAlumnos?: TblPpbAlumno[];
+  @OneToMany(
+    () => TblRegistroDiarioActividades,
+    (tblRegistroDiarioActividades) => tblRegistroDiarioActividades.idAlumno
+  )
+  tblRegistroDiarioActividades!: TblRegistroDiarioActividades[];
 
   @OneToMany(
     () => TblResultadosActividad,
     (tblResultadosActividad) => tblResultadosActividad.idAlumno
   )
-  tblResultadosActividads?: TblResultadosActividad[];
-
-  @OneToMany(
-    () => TblTareasDiariasAlumno,
-    (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idAlumno
-  )
-  tblTareasDiariasAlumnos?: TblTareasDiariasAlumno[];
+  tblResultadosActividads!: TblResultadosActividad[];
 }

@@ -2,7 +2,6 @@ import express from "express"
 
 import TblResultadosActividad from "./TblResultadosActividad.router"
 import TblAlumnoController from "./TblAlumno.router"
-import TblPpbAlumnoController from "./TblPpbAlumno.router"
 import CatMateriaRouter from "./CatMateria.router"
 import CatTipoPersonalizacion from "./CatTipoPersonalizacion.router"
 import CatTipoDesbloqueo  from "./CatTipoDesbloqueo.router"
@@ -18,9 +17,9 @@ import CatActividadPPBController from "./CatActividadPPB.router"
 import ViewDetallePropsController from "./ViewDetalleProps.router"
 import ViewDetalleActividadController from "./ViewDetalleActividad.router"
 import ViewDetalleActividadTipoActividadController from "./ViewDetalleActividad.router"
+import TblRegistroDiarioActividadesController from "./TblRegistroDiarioActividades.router"
 
 import PingController from "../controllers/ping"
-
 
 const router = express.Router()
 
@@ -37,11 +36,11 @@ router.use("/datoCuriosoContenido", CatDatoCuriosoContenidoController)
 router.use("/contenidoMaterias", CatContenidoMateriasController)
 router.use("/actividadPPB", CatActividadPPBController)
 router.use("/alumno", TblAlumnoController)
-router.use("/alumnoppb", TblPpbAlumnoController)
 router.use("/detalleProps", ViewDetallePropsController)
 router.use("/detalleActividad", ViewDetalleActividadController)
 router.use("/detalleActividadTipoActividad", ViewDetalleActividadTipoActividadController)
 router.use("/resultadoActividad",TblResultadosActividad)
+router.use("/registroDiario",TblRegistroDiarioActividadesController)
 
 
 router.get("/ping", async (_req, res) => {

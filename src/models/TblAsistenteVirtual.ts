@@ -17,7 +17,7 @@ export class TblAsistenteVirtual {
   idAv!: number;
 
   @OneToMany(() => TblAlumno, (tblAlumno) => tblAlumno.idAv)
-  tblAlumnos?: TblAlumno[];
+  tblAlumnos!: TblAlumno[];
 
   @ManyToOne(
     () => CatPropPersonalizacion,
@@ -68,5 +68,5 @@ export class TblAsistenteVirtual {
     () => TblDesbloqueosPropsAv,
     (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.idAv
   )
-  tblDesbloqueosPropsAvs?: TblDesbloqueosPropsAv[];
+  tblDesbloqueosPropsAvs!: TblDesbloqueosPropsAv[];
 }

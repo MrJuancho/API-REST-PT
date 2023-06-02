@@ -1,17 +1,10 @@
 import { DataSource } from "typeorm";
 import { CatMateria, CatActividad,
-        CatActividadPpb, CatContenidoMaterias,
-        CatDatoCurioso, CatDesafioDiario,
-        CatEscuela, CatPropPersonalizacion,
-        CatTareaDiaria, CatTipoDesbloqueo,
-        CatTipoPersonalizacion, TblAlumno,
-        TblAsistenteVirtual, TblAnalisisDeDatos,
-        TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
-        TblPpbAlumno, TblRegistroDiarioActividades,
-        TblReporteAnalisisDatos, TblResultadosActividad,
-        TblTareasDiariasAlumno, ViewDetalleProps,
-        CatTipoActividad,
-        ViewDetalleActividad} from "../models";
+        CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
+        CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo,
+        CatTipoPersonalizacion, TblAlumno, TblAsistenteVirtual, TblIndiceUcbAlumno,
+        TblDesbloqueosPropsAv, TblRegistroDiarioActividades,
+        TblResultadosActividad, ViewDetalleProps, CatTipoActividad, ViewDetalleActividad} from "../models";
 
 export const db = new DataSource({
     type: "mssql",
@@ -24,8 +17,7 @@ export const db = new DataSource({
     connectionTimeout: 5000,
     entities: [CatMateria, CatActividad, CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
               CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo, CatTipoPersonalizacion, TblAlumno,
-              TblAsistenteVirtual, TblAnalisisDeDatos, TblDesafioDiarioAlumno, TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
-              TblPpbAlumno, TblRegistroDiarioActividades, TblReporteAnalisisDatos, TblResultadosActividad, TblTareasDiariasAlumno,
+              TblAsistenteVirtual, TblDesbloqueosPropsAv, TblRegistroDiarioActividades, TblResultadosActividad, TblIndiceUcbAlumno,
               CatTipoActividad, ViewDetalleProps, ViewDetalleActividad],
     synchronize: false,
     options:{

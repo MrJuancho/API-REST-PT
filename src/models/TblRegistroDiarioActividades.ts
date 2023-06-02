@@ -6,43 +6,65 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TblDesafioDiarioAlumno } from "./TblDesafioDiarioAlumno";
-import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
+import { CatDesafioDiario } from "./CatDesafioDiario";
+import { TblAlumno } from "./TblAlumno";
+import { CatTareaDiaria } from "./CatTareaDiaria";
 
-@Index("PK_TBL_RegistroDiarioActividades", ["idRegistroActividades"], {
+@Index("PK_TBL_RegistroDiarioActividades", ["idRegistroDiarioActividades"], {
   unique: true,
 })
 @Entity("TBL_RegistroDiarioActividades", { schema: "dbo" })
 export class TblRegistroDiarioActividades {
-  @PrimaryGeneratedColumn({ type: "int", name: "idRegistroActividades" })
-  idRegistroActividades!: number;
+  @PrimaryGeneratedColumn({ type: "int", name: "idRegistroDiarioActividades" })
+  idRegistroDiarioActividades!: number;
 
-  @Column("int", { name: "TareasCompletadas", nullable: true })
-  tareasCompletadas!: number | null;
+  @Column("int", { name: "TareasCompletadas" })
+  tareasCompletadas!: number;
 
-  @Column("int", { name: "Fecha", nullable: true })
-  fecha!: number | null;
+  @Column("bit", { name: "DesafioCompletado" })
+  desafioCompletado!: boolean;
 
-  @ManyToOne(
-    () => TblDesafioDiarioAlumno,
-    (tblDesafioDiarioAlumno) =>
-      tblDesafioDiarioAlumno.tblRegistroDiarioActividades
-  )
-  @JoinColumn([
-    { name: "idDesafioDiario", referencedColumnName: "idDesafioAlumno" },
-  ])
-  idDesafioDiario!: TblDesafioDiarioAlumno;
+  @Column("date", { name: "Fecha" })
+  fecha!: Date;
 
   @ManyToOne(
-    () => TblTareasDiariasAlumno,
-    (tblTareasDiariasAlumno) =>
-      tblTareasDiariasAlumno.tblRegistroDiarioActividades
+    () => CatDesafioDiario,
+    (catDesafioDiario) => catDesafioDiario.tblRegistroDiarioActividades
+  )
+  @JoinColumn([{ name: "idDesafioDiario", referencedColumnName: "idDesafio" }])
+  idDesafioDiario!: CatDesafioDiario;
+
+  @ManyToOne(
+    () => TblAlumno,
+    (tblAlumno) => tblAlumno.tblRegistroDiarioActividades
+  )
+  @JoinColumn([{ name: "idAlumno", referencedColumnName: "idAlumno" }])
+  idAlumno!: TblAlumno;
+
+  @ManyToOne(
+    () => CatTareaDiaria,
+    (catTareaDiaria) => catTareaDiaria.tblRegistroDiarioActividades
   )
   @JoinColumn([
-    {
-      name: "idActividadesDiariasAlumno",
-      referencedColumnName: "idTareasAlumno",
-    },
+    { name: "idTareaDiaria1", referencedColumnName: "idTareaDiaria" },
   ])
-  idActividadesDiariasAlumno!: TblTareasDiariasAlumno;
+  idTareaDiaria!: CatTareaDiaria;
+
+  @ManyToOne(
+    () => CatTareaDiaria,
+    (catTareaDiaria) => catTareaDiaria.tblRegistroDiarioActividades2
+  )
+  @JoinColumn([
+    { name: "idTareaDiaria2", referencedColumnName: "idTareaDiaria" },
+  ])
+  idTareaDiaria2!: CatTareaDiaria;
+
+  @ManyToOne(
+    () => CatTareaDiaria,
+    (catTareaDiaria) => catTareaDiaria.tblRegistroDiarioActividades3
+  )
+  @JoinColumn([
+    { name: "idTareaDiaria3", referencedColumnName: "idTareaDiaria" },
+  ])
+  idTareaDiaria3!: CatTareaDiaria;
 }

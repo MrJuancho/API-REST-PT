@@ -10,18 +10,14 @@ import { CatTareaDiaria } from "./CatTareaDiaria"
 import { CatTipoDesbloqueo } from "./CatTipoDesbloqueo"
 import { CatTipoPersonalizacion } from "./CatTipoPersonalizacion"
 import { TblAlumno } from "./TblAlumno"
-import { TblAnalisisDeDatos } from "./TblAnalisisDeDatos"
 import { TblAsistenteVirtual } from "./TblAsistenteVirtual"
-import { TblDesafioDiarioAlumno } from "./TblDesafioDiarioAlumno"
 import { TblDesbloqueosPropsAv } from "./TblDesbloqueosPropsAv"
-import { TblPpbAlumno } from "./TblPpbAlumno"
 import { TblRegistroDiarioActividades } from "./TblRegistroDiarioActividades"
-import { TblReporteAnalisisDatos} from "./TblReporteAnalisisDatos"
 import { TblResultadosActividad } from "./TblResultadosActividad"
-import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno"
 import { CatTipoActividad } from "./CatTipoActividad"
 import { ViewDetalleProps } from "./ViewDetalleProps"
 import { ViewDetalleActividad } from "./ViewDetalleActividad"
+import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno"
 
 export { CatMateria, CatContenidoMaterias,
     CatActividad, CatActividadPpb,
@@ -29,8 +25,8 @@ export { CatMateria, CatContenidoMaterias,
     CatEscuela, CatPropPersonalizacion,
     CatTareaDiaria, CatTipoDesbloqueo,
     CatTipoPersonalizacion, TblAlumno,
-    TblAnalisisDeDatos, TblAsistenteVirtual,
-    TblDesafioDiarioAlumno, TblDesbloqueosPropsAv,
-    TblPpbAlumno, TblRegistroDiarioActividades,
-    TblReporteAnalisisDatos, TblResultadosActividad,
-    TblTareasDiariasAlumno, CatTipoActividad, ViewDetalleProps, ViewDetalleActividad }
+    TblAsistenteVirtual,
+    TblDesbloqueosPropsAv,
+    TblRegistroDiarioActividades,
+    TblIndiceUcbAlumno, TblResultadosActividad,
+    CatTipoActividad, ViewDetalleProps, ViewDetalleActividad }

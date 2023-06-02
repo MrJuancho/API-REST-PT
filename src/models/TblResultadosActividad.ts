@@ -9,11 +9,11 @@ import {
 import { TblAlumno } from "./TblAlumno";
 import { CatActividad } from "./CatActividad";
 
-@Index("PK_TBL_ResultadosActividad", ["idActividadPpbAlumno"], { unique: true })
+@Index("PK_TBL_ResultadosActividad", ["idResultadosAlumno"], { unique: true })
 @Entity("TBL_ResultadosActividad", { schema: "dbo" })
 export class TblResultadosActividad {
-  @PrimaryGeneratedColumn({ type: "int", name: "idActividadPPBAlumno" })
-  idActividadPpbAlumno!: number;
+  @PrimaryGeneratedColumn({ type: "int", name: "idResultadosAlumno" })
+  idResultadosAlumno!: number;
 
   @Column("time", { name: "TiempoResolucion" })
   tiempoResolucion!: Date;
@@ -21,8 +21,11 @@ export class TblResultadosActividad {
   @Column("int", { name: "Intentos" })
   intentos!: number;
 
-  @Column("int", { name: "Asistencias" })
-  asistencias!: number;
+  @Column("int", { name: "Asistencia" })
+  asistencia!: number;
+
+  @Column("datetime", { name: "FechaRealizacion" })
+  fechaRealizacion!: Date;
 
   @ManyToOne(() => TblAlumno, (tblAlumno) => tblAlumno.tblResultadosActividads)
   @JoinColumn([{ name: "idAlumno", referencedColumnName: "idAlumno" }])

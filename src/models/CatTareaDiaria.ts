@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TblTareasDiariasAlumno } from "./TblTareasDiariasAlumno";
+import { TblRegistroDiarioActividades } from "./TblRegistroDiarioActividades";
 
 @Index("PK_CAT_TareaDiaria", ["idTareaDiaria"], { unique: true })
 @Entity("CAT_TareaDiaria", { schema: "dbo" })
@@ -23,20 +23,22 @@ export class CatTareaDiaria {
   estrellas!: number | null;
 
   @OneToMany(
-    () => TblTareasDiariasAlumno,
-    (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idTarea
+    () => TblRegistroDiarioActividades,
+    (tblRegistroDiarioActividades) => tblRegistroDiarioActividades.idTareaDiaria
   )
-  tblTareasDiariasAlumnos?: TblTareasDiariasAlumno[];
+  tblRegistroDiarioActividades?: TblRegistroDiarioActividades[];
 
   @OneToMany(
-    () => TblTareasDiariasAlumno,
-    (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idTarea2
+    () => TblRegistroDiarioActividades,
+    (tblRegistroDiarioActividades) =>
+      tblRegistroDiarioActividades.idTareaDiaria2
   )
-  tblTareasDiariasAlumnos2?: TblTareasDiariasAlumno[];
+  tblRegistroDiarioActividades2?: TblRegistroDiarioActividades[];
 
   @OneToMany(
-    () => TblTareasDiariasAlumno,
-    (tblTareasDiariasAlumno) => tblTareasDiariasAlumno.idTarea3
+    () => TblRegistroDiarioActividades,
+    (tblRegistroDiarioActividades) =>
+      tblRegistroDiarioActividades.idTareaDiaria3
   )
-  tblTareasDiariasAlumnos3?: TblTareasDiariasAlumno[];
+  tblRegistroDiarioActividades3?: TblRegistroDiarioActividades[];
 }
