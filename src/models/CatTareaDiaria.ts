@@ -26,19 +26,19 @@ export class CatTareaDiaria {
     () => TblRegistroDiarioActividades,
     (tblRegistroDiarioActividades) => tblRegistroDiarioActividades.idTareaDiaria
   )
-  tblRegistroDiarioActividades?: TblRegistroDiarioActividades[];
+  tblRegistroDiarioActividades!: TblRegistroDiarioActividades[];
 
   @OneToMany(
     () => TblRegistroDiarioActividades,
     (tblRegistroDiarioActividades) =>
       tblRegistroDiarioActividades.idTareaDiaria2
   )
-  tblRegistroDiarioActividades2?: TblRegistroDiarioActividades[];
+  tblRegistroDiarioActividades2!: TblRegistroDiarioActividades[];
 
   @OneToMany(
     () => TblRegistroDiarioActividades,
     (tblRegistroDiarioActividades) =>
       tblRegistroDiarioActividades.idTareaDiaria3
   )
-  tblRegistroDiarioActividades3?: TblRegistroDiarioActividades[];
+  tblRegistroDiarioActividades3!: TblRegistroDiarioActividades[];
 }

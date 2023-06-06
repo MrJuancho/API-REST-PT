@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { CatTipoActividad } from "./CatTipoActividad";
 import { CatActividadPpb } from "./CatActividadPpb";
+import { CatRutas } from "./CatRutas";
 import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno";
 import { TblResultadosActividad } from "./TblResultadosActividad";
 
@@ -38,6 +39,9 @@ export class CatActividad {
     (catActividadPpb) => catActividadPpb.idActividad
   )
   catActividadPpbs!: CatActividadPpb[];
+
+  @OneToMany(() => CatRutas, (catRutas) => catRutas.idActividades)
+  catRutas!: CatRutas[];
 
   @OneToMany(
     () => TblIndiceUcbAlumno,

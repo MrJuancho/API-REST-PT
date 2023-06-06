@@ -17,5 +17,5 @@ export class CatTipoActividad {
   descripcionTipoActividad!: string;
 
   @OneToMany(() => CatActividad, (catActividad) => catActividad.idTipoActividad)
-  catActividads?: CatActividad[];
+  catActividads!: CatActividad[];
 }

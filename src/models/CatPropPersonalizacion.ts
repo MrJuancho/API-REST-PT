@@ -54,35 +54,35 @@ export class CatPropPersonalizacion {
     () => TblAsistenteVirtual,
     (tblAsistenteVirtual) => tblAsistenteVirtual.idCara
   )
-  tblAsistenteVirtuals?: TblAsistenteVirtual[];
+  tblAsistenteVirtuals!: TblAsistenteVirtual[];
 
   @OneToMany(
     () => TblAsistenteVirtual,
     (tblAsistenteVirtual) => tblAsistenteVirtual.idColor
   )
-  tblAsistenteVirtuals2?: TblAsistenteVirtual[];
+  tblAsistenteVirtuals2!: TblAsistenteVirtual[];
 
   @OneToMany(
     () => TblAsistenteVirtual,
     (tblAsistenteVirtual) => tblAsistenteVirtual.idPatron
   )
-  tblAsistenteVirtuals3?: TblAsistenteVirtual[];
+  tblAsistenteVirtuals3!: TblAsistenteVirtual[];
 
   @OneToMany(
     () => TblAsistenteVirtual,
     (tblAsistenteVirtual) => tblAsistenteVirtual.idPrenda
   )
-  tblAsistenteVirtuals4?: TblAsistenteVirtual[];
+  tblAsistenteVirtuals4!: TblAsistenteVirtual[];
 
   @OneToMany(
     () => TblAsistenteVirtual,
     (tblAsistenteVirtual) => tblAsistenteVirtual.idSpecial
   )
-  tblAsistenteVirtuals5?: TblAsistenteVirtual[];
+  tblAsistenteVirtuals5!: TblAsistenteVirtual[];
 
   @OneToMany(
     () => TblDesbloqueosPropsAv,
     (tblDesbloqueosPropsAv) => tblDesbloqueosPropsAv.idPropsPersonalizacion
   )
-  tblDesbloqueosPropsAvs?: TblDesbloqueosPropsAv[];
+  tblDesbloqueosPropsAvs!: TblDesbloqueosPropsAv[];
 }

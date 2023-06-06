@@ -157,7 +157,13 @@
 					"descProp",
 					"costo",
 					"idTipoDebloqueo",
-					"idTipoPersonalizacion"
+					"idTipoPersonalizacion",
+					"tblAsistenteVirtuals",
+					"tblAsistenteVirtuals2",
+					"tblAsistenteVirtuals3",
+					"tblAsistenteVirtuals4",
+					"tblAsistenteVirtuals5",
+					"tblDesbloqueosPropsAvs"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -181,7 +187,8 @@
 				},
 				"required": [
 					"idTipoDesbloqueo",
-					"descTipoDebloqueo"
+					"descTipoDebloqueo",
+					"catPropPersonalizacions"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -205,7 +212,8 @@
 				},
 				"required": [
 					"idTipoPersonalizacion",
-					"descTipoPersonalizacion"
+					"descTipoPersonalizacion",
+					"catPropPersonalizacions"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -268,18 +276,18 @@
 						"format": "date-time",
 						"nullable": true
 					},
-					"idAv": {
-						"$ref": "#/components/schemas/TblAsistenteVirtual"
-					},
 					"idPropsPersonalizacion": {
 						"$ref": "#/components/schemas/CatPropPersonalizacion"
+					},
+					"idAv": {
+						"$ref": "#/components/schemas/TblAsistenteVirtual"
 					}
 				},
 				"required": [
 					"idDesbloqueosAv",
 					"fechaDesbloqueo",
-					"idAv",
-					"idPropsPersonalizacion"
+					"idPropsPersonalizacion",
+					"idAv"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -302,7 +310,8 @@
 				},
 				"required": [
 					"cct",
-					"nombre"
+					"nombre",
+					"tblAlumnos"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -329,6 +338,12 @@
 						},
 						"type": "array"
 					},
+					"catRutas": {
+						"items": {
+							"$ref": "#/components/schemas/CatRutas"
+						},
+						"type": "array"
+					},
 					"tblIndiceUcbAlumnos": {
 						"items": {
 							"$ref": "#/components/schemas/TblIndiceUcbAlumno"
@@ -348,6 +363,7 @@
 					"descripcion",
 					"idTipoActividad",
 					"catActividadPpbs",
+					"catRutas",
 					"tblIndiceUcbAlumnos",
 					"tblResultadosActividads"
 				],
@@ -372,7 +388,8 @@
 				},
 				"required": [
 					"idTipoActividad",
-					"descripcionTipoActividad"
+					"descripcionTipoActividad",
+					"catActividads"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -477,7 +494,8 @@
 				},
 				"required": [
 					"idMateria",
-					"descripcionMateria"
+					"descripcionMateria",
+					"catContenidoMaterias"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -500,6 +518,27 @@
 					"idDatoCurioso",
 					"descripcionDatos",
 					"idContenidoMateria"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatRutas": {
+				"properties": {
+					"idRutas": {
+						"type": "number",
+						"format": "double"
+					},
+					"rutas": {
+						"type": "string"
+					},
+					"idActividades": {
+						"$ref": "#/components/schemas/CatActividad"
+					}
+				},
+				"required": [
+					"idRutas",
+					"rutas",
+					"idActividades"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -589,9 +628,6 @@
 						"type": "string",
 						"format": "date-time"
 					},
-					"idDesafioDiario": {
-						"$ref": "#/components/schemas/CatDesafioDiario"
-					},
 					"idAlumno": {
 						"$ref": "#/components/schemas/TblAlumno"
 					},
@@ -603,6 +639,9 @@
 					},
 					"idTareaDiaria3": {
 						"$ref": "#/components/schemas/CatTareaDiaria"
+					},
+					"idDesafioDiario": {
+						"$ref": "#/components/schemas/CatDesafioDiario"
 					}
 				},
 				"required": [
@@ -610,48 +649,11 @@
 					"tareasCompletadas",
 					"desafioCompletado",
 					"fecha",
-					"idDesafioDiario",
 					"idAlumno",
 					"idTareaDiaria",
 					"idTareaDiaria2",
-					"idTareaDiaria3"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"CatDesafioDiario": {
-				"properties": {
-					"idDesafio": {
-						"type": "number",
-						"format": "double"
-					},
-					"descripcionDesafio": {
-						"type": "string",
-						"nullable": true
-					},
-					"monedas": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"estrellas": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"tblRegistroDiarioActividades": {
-						"items": {
-							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idDesafio",
-					"descripcionDesafio",
-					"monedas",
-					"estrellas",
-					"tblRegistroDiarioActividades"
+					"idTareaDiaria3",
+					"idDesafioDiario"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -699,7 +701,47 @@
 					"idTareaDiaria",
 					"descripcionTarea",
 					"monedas",
-					"estrellas"
+					"estrellas",
+					"tblRegistroDiarioActividades",
+					"tblRegistroDiarioActividades2",
+					"tblRegistroDiarioActividades3"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatDesafioDiario": {
+				"properties": {
+					"idDesafio": {
+						"type": "number",
+						"format": "double"
+					},
+					"descripcionDesafio": {
+						"type": "string",
+						"nullable": true
+					},
+					"monedas": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"estrellas": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"tblRegistroDiarioActividades": {
+						"items": {
+							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idDesafio",
+					"descripcionDesafio",
+					"monedas",
+					"estrellas",
+					"tblRegistroDiarioActividades"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -2053,6 +2095,68 @@
 						}
 					}
 				}
+			}
+		},
+		"/rutas": {
+			"get": {
+				"operationId": "GetRutas",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CatRutas"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatRutas"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/rutas/{id}": {
+			"get": {
+				"operationId": "GetRuta",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatRutas"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatRutas"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
 			}
 		},
 		"/ping": {

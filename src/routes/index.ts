@@ -18,12 +18,14 @@ import ViewDetallePropsController from "./ViewDetalleProps.router"
 import ViewDetalleActividadController from "./ViewDetalleActividad.router"
 import ViewDetalleActividadTipoActividadController from "./ViewDetalleActividad.router"
 import TblRegistroDiarioActividadesController from "./TblRegistroDiarioActividades.router"
+import CatRutas from "./CatRutas.router"
 
 import PingController from "../controllers/ping"
 
 const router = express.Router()
 
 router.use("/materias", CatMateriaRouter)
+router.use("/rutas", CatRutas)
 router.use("/tipospersonalizacion", CatTipoPersonalizacion)
 router.use("/tiposDesbloqueo", CatTipoDesbloqueo)
 router.use("/props", CatPropPersonalizacion)

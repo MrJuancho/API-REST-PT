@@ -24,5 +24,5 @@ export class CatTipoDesbloqueo {
     () => CatPropPersonalizacion,
     (catPropPersonalizacion) => catPropPersonalizacion.idTipoDebloqueo
   )
-  catPropPersonalizacions?: CatPropPersonalizacion[];
+  catPropPersonalizacions!: CatPropPersonalizacion[];
 }

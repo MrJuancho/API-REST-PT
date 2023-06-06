@@ -20,5 +20,5 @@ export class CatMateria {
     () => CatContenidoMaterias,
     (catContenidoMaterias) => catContenidoMaterias.idMateria
   )
-  catContenidoMaterias?: CatContenidoMaterias[];
+  catContenidoMaterias!: CatContenidoMaterias[];
 }

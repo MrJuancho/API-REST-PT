@@ -26,5 +26,5 @@ export class CatTipoPersonalizacion {
     () => CatPropPersonalizacion,
     (catPropPersonalizacion) => catPropPersonalizacion.idTipoPersonalizacion
   )
-  catPropPersonalizacions?: CatPropPersonalizacion[];
+  catPropPersonalizacions!: CatPropPersonalizacion[];
 }

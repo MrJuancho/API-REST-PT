@@ -18,6 +18,7 @@ import { CatTipoActividad } from "./CatTipoActividad"
 import { ViewDetalleProps } from "./ViewDetalleProps"
 import { ViewDetalleActividad } from "./ViewDetalleActividad"
 import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno"
+import { CatRutas } from "./CatRutas"
 
 export { CatMateria, CatContenidoMaterias,
     CatActividad, CatActividadPpb,
@@ -29,4 +30,4 @@ export { CatMateria, CatContenidoMaterias,
     TblDesbloqueosPropsAv,
     TblRegistroDiarioActividades,
     TblIndiceUcbAlumno, TblResultadosActividad,
-    CatTipoActividad, ViewDetalleProps, ViewDetalleActividad }
+    CatTipoActividad, ViewDetalleProps, ViewDetalleActividad , CatRutas }
