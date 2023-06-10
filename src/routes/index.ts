@@ -19,6 +19,7 @@ import ViewDetalleActividadController from "./ViewDetalleActividad.router"
 import ViewDetalleActividadTipoActividadController from "./ViewDetalleActividad.router"
 import TblRegistroDiarioActividadesController from "./TblRegistroDiarioActividades.router"
 import CatRutas from "./CatRutas.router"
+import TblIndiceUCBAlumnoController from "./TblUCBController.router"
 
 import PingController from "../controllers/ping"
 
@@ -43,6 +44,7 @@ router.use("/detalleActividad", ViewDetalleActividadController)
 router.use("/detalleActividadTipoActividad", ViewDetalleActividadTipoActividadController)
 router.use("/resultadoActividad",TblResultadosActividad)
 router.use("/registroDiario",TblRegistroDiarioActividadesController)
+router.use("/indiceUCB", TblIndiceUCBAlumnoController)
 
 
 router.get("/ping", async (_req, res) => {

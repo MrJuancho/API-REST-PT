@@ -958,6 +958,29 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"payloadActividadUCBAlumno": {
+				"properties": {
+					"idAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"idActividad": {
+						"type": "number",
+						"format": "double"
+					},
+					"indiceUCB": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"idAlumno",
+					"idActividad",
+					"indiceUCB"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"PingResponse": {
 				"properties": {
 					"message": {
@@ -2157,6 +2180,95 @@
 						}
 					}
 				]
+			}
+		},
+		"/indiceUCB/{idAlumno}": {
+			"get": {
+				"operationId": "GetActividadesByMostUCB",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TblIndiceUcbAlumno"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Indice UCB Alumnos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idAlumno",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateIndiceUCPAlumno",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"Indice UCB Alumnos"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/indiceUCB": {
+			"post": {
+				"operationId": "PostIndiceUCBAlumno",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TblIndiceUcbAlumno"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Indice UCB Alumnos"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/ping": {
