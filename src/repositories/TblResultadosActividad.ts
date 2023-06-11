@@ -1,4 +1,5 @@
 
+import { MoreThanOrEqual } from "typeorm";
 import db from "../config/database"
 import { CatActividad, TblAlumno, TblResultadosActividad } from "../models"
 
@@ -11,12 +12,16 @@ export interface uploadActividadPayload {
     fecha: Date
 }
 
-export const getResultadoActividad = async (id : number) : Promise<TblResultadosActividad | null> => {
-    const resRepo = db.getRepository(TblResultadosActividad);
-    const resultadoConsulta = resRepo.findOne({ where : { idResultadosAlumno : id}})
+export const getResultadoActividad = async (dateTime : string) : Promise<Array<TblResultadosActividad>> => {
+    const resRepo = db.getRepository(TblResultadosActividad)
 
-    if(!resultadoConsulta) return null
-    return resultadoConsulta
+    const fecha = new Date(dateTime)
+
+    const resultados = resRepo.find({ where : {
+        fechaRealizacion : MoreThanOrEqual(fecha)
+    }})
+
+    return resultados
 }
 
 export const createResultado = async (payload : uploadActividadPayload) : Promise<TblResultadosActividad> => {

@@ -9,9 +9,9 @@ import {
 @Route("resultadoActividad")
 @Tags("Resultados Actividad")
 export default class TblResultadosActividadController {
-    @Get("/:id")
-    public async getResultadosActividad(@Path() id : string): Promise<TblResultadosActividad | null> {
-        return getResultadoActividad(Number(id))
+    @Get("/:date")
+    public async getResultadosActividad(@Path() date: string): Promise<Array<TblResultadosActividad>> {
+        return getResultadoActividad(date)
     }
 
     @Post("/")

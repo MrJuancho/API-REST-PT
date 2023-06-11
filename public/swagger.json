@@ -1008,7 +1008,7 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/resultadoActividad/{id}": {
+		"/resultadoActividad/{date}": {
 			"get": {
 				"operationId": "GetResultadosActividad",
 				"responses": {
@@ -1017,12 +1017,10 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/TblResultadosActividad"
-										}
-									],
-									"nullable": true
+									"items": {
+										"$ref": "#/components/schemas/TblResultadosActividad"
+									},
+									"type": "array"
 								}
 							}
 						}
@@ -1035,7 +1033,7 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "date",
 						"required": true,
 						"schema": {
 							"type": "string"

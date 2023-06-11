@@ -25,7 +25,7 @@ export const getActividadesOrderByMostUCB = async (idAlumno : number) : Promise<
     const actividades = await ucbRepo.createQueryBuilder()
                     .where("idAlumno = :idAlumno", { idAlumno : idAlumno })
                     .orderBy("indiceUCB","ASC")
-                    .getMany()
+                    .getRawMany()
 
     return actividades
 }

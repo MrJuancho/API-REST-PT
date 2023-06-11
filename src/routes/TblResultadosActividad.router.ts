@@ -3,9 +3,9 @@ import TblResultadosActividadController from "../controllers/TblResultadosActivi
 
 const router = express.Router()
 
-router.get("/:id", async (req, res) => {
+router.get("/:date", async (req, res) => {
     const controller = new TblResultadosActividadController()
-    const response = await controller.getResultadosActividad(req.params.id)
+    const response = await controller.getResultadosActividad(req.params.date)
 
     if (!response) return res.status(404).send({ message : "No se encuentran esos resultados" })
     return res.send(response)
