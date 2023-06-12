@@ -35,7 +35,7 @@ export const getResultadoActividad = async (dateTime : string) : Promise<Array<T
 
 export const getAllResultados = async () : Promise<Array<TblResultadosActividad>> => {
     const resRepo = db.getRepository(TblResultadosActividad)
-    return resRepo.find()
+    return resRepo.createQueryBuilder().getRawMany()
 }
 
 export const createResultado = async (payload : uploadActividadPayload) : Promise<TblResultadosActividad> => {
