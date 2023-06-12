@@ -27,7 +27,7 @@ export const getResultadoActividad = async (dateTime : string) : Promise<Array<T
     }})
 
     const resultado = resRepo.createQueryBuilder()
-                        .where("FechaRealizacion >= :date", { date : dateTime })
+                        .where("FechaRealizacion >= :date", { date : fecha })
                         .getRawMany()
 
     return resultado
