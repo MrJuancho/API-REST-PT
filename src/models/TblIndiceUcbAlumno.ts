@@ -15,11 +15,11 @@ export class TblIndiceUcbAlumno {
   @PrimaryGeneratedColumn({ type: "int", name: "idIndicesUCBAlumno" })
   idIndicesUcbAlumno!: number;
 
-  @Column("numeric", {
+  @Column("decimal", {
     name: "indiceUCB",
     nullable: true,
     precision: 18,
-    scale: 0,
+    scale: 15,
   })
   indiceUcb!: number | null;
 
