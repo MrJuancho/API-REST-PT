@@ -21,7 +21,11 @@ export const getResultadoActividad = async (dateTime : string) : Promise<Array<T
         fechaRealizacion : MoreThanOrEqual(fecha)
     }})
 
-    return resultados
+    const resultado = resRepo.createQueryBuilder()
+                        .where("FechaRealizacion >= :date", { date : dateTime })
+                        .getRawMany()
+
+    return resultado
 }
 
 export const createResultado = async (payload : uploadActividadPayload) : Promise<TblResultadosActividad> => {
