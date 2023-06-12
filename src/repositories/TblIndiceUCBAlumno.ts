@@ -49,7 +49,7 @@ export const putUCBIndex = async (payload : payloadActividadUCBAlumno) : Promise
 
     ucbRepo.update({
         idAlumno : { idAlumno : payload.idAlumno },
-        idActividad : {idActividad : payload.idActividad}
+        idActividad : { idActividad : payload.idActividad}
         },
         {
             indiceUcb : payload.indiceUCB

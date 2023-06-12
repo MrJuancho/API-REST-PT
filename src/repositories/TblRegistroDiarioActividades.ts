@@ -12,6 +12,7 @@ export interface uploadRegistroActividadPayload {
 
 export interface updatetareasCompletadas {
     idAlumno: number,
+    fecha: Date
     tareasCompletadas: number,
     desafioCompletado : boolean
 }
@@ -54,10 +55,11 @@ export const updateActividadesCompletadas = async (payload : updatetareasComplet
     const registrosRepo = db.getRepository(TblRegistroDiarioActividades)
 
     registrosRepo.update({
-        idAlumno : { idAlumno : payload.idAlumno }
+            idAlumno : { idAlumno : payload.idAlumno },
+            fecha : payload.fecha
         },
         {
             tareasCompletadas : payload.tareasCompletadas,
             desafioCompletado : payload.desafioCompletado
-    })
+        })
 }
