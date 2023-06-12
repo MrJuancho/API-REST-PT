@@ -27,6 +27,14 @@ export class TblResultadosActividad {
   @Column("datetime", { name: "FechaRealizacion" })
   fechaRealizacion!: Date;
 
+  @Column("decimal", {
+    name: "recompensa",
+    nullable: true,
+    precision: 18,
+    scale: 15,
+  })
+  recompensa!: number | null;
+
   @ManyToOne(() => TblAlumno, (tblAlumno) => tblAlumno.tblResultadosActividads)
   @JoinColumn([{ name: "idAlumno", referencedColumnName: "idAlumno" }])
   idAlumno!: TblAlumno;

@@ -12,6 +12,11 @@ export interface uploadActividadPayload {
     fecha: Date
 }
 
+export interface updateRecompensaPayload {
+    idResultadoActividad: number,
+    recompensaUCB: number
+}
+
 export const getResultadoActividad = async (dateTime : string) : Promise<Array<TblResultadosActividad>> => {
     const resRepo = db.getRepository(TblResultadosActividad)
 
@@ -26,6 +31,11 @@ export const getResultadoActividad = async (dateTime : string) : Promise<Array<T
                         .getRawMany()
 
     return resultado
+}
+
+export const getAllResultados = async () : Promise<Array<TblResultadosActividad>> => {
+    const resRepo = db.getRepository(TblResultadosActividad)
+    return resRepo.find()
 }
 
 export const createResultado = async (payload : uploadActividadPayload) : Promise<TblResultadosActividad> => {
@@ -44,4 +54,15 @@ export const createResultado = async (payload : uploadActividadPayload) : Promis
     Resultado.fechaRealizacion = payload.fecha
 
     return resRepo.save(Resultado)
+}
+
+export const updateRecompensas = async (payload : updateRecompensaPayload) : Promise<void> => {
+    const resRepo = db.getRepository(TblResultadosActividad)
+
+    resRepo.update({
+        idResultadosAlumno : payload.idResultadoActividad
+    },
+    {
+        recompensa : payload.recompensaUCB
+    })
 }

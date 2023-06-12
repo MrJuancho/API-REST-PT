@@ -592,6 +592,11 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"recompensa": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
 					"idAlumno": {
 						"$ref": "#/components/schemas/TblAlumno"
 					},
@@ -605,6 +610,7 @@
 					"intentos",
 					"asistencia",
 					"fechaRealizacion",
+					"recompensa",
 					"idAlumno",
 					"idActividad"
 				],
@@ -780,6 +786,24 @@
 					"intentos",
 					"asistencias",
 					"fecha"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"updateRecompensaPayload": {
+				"properties": {
+					"idResultadoActividad": {
+						"type": "number",
+						"format": "double"
+					},
+					"recompensaUCB": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"idResultadoActividad",
+					"recompensaUCB"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1048,6 +1072,29 @@
 			}
 		},
 		"/resultadoActividad": {
+			"get": {
+				"operationId": "GetResultados",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TblResultadosActividad"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Resultados Actividad"
+				],
+				"security": [],
+				"parameters": []
+			},
 			"post": {
 				"operationId": "PostResultados",
 				"responses": {
@@ -1073,6 +1120,31 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/uploadActividadPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/resultadoActividad/{idResultado}": {
+			"put": {
+				"operationId": "UpdateRecompensaActividad",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"Resultados Actividad"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/updateRecompensaPayload"
 							}
 						}
 					}
