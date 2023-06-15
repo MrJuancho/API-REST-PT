@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { CatPropPersonalizacion } from "./CatPropPersonalizacion";
+import { CatAv } from "./CatAv";
 
 @Index("PK_CAT_TipoDesbloqueo", ["idTipoDesbloqueo"], { unique: true })
 @Entity("CAT_TipoDesbloqueo", { schema: "dbo" })
@@ -20,9 +20,6 @@ export class CatTipoDesbloqueo {
   })
   descTipoDebloqueo!: string | null;
 
-  @OneToMany(
-    () => CatPropPersonalizacion,
-    (catPropPersonalizacion) => catPropPersonalizacion.idTipoDebloqueo
-  )
-  catPropPersonalizacions!: CatPropPersonalizacion[];
+  @OneToMany(() => CatAv, (catAv) => catAv.idTipoDesbloqueo)
+  catAvs?: CatAv[];
 }

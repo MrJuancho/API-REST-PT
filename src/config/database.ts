@@ -1,10 +1,9 @@
 import { DataSource } from "typeorm";
-import { CatMateria, CatActividad,
+import { CatMateria, CatActividad, CatAv,
         CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
-        CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo,
-        CatTipoPersonalizacion, TblAlumno, TblAsistenteVirtual, TblIndiceUcbAlumno,
-        TblDesbloqueosPropsAv, TblRegistroDiarioActividades,
-        TblResultadosActividad, ViewDetalleProps, CatTipoActividad, ViewDetalleActividad,CatRutas} from "../models";
+        CatEscuela, CatTareaDiaria, CatTipoDesbloqueo, TblAlumnoAv,
+        TblAlumno, TblIndiceUcbAlumno, TblRegistroDiarioActividades,
+        TblResultadosActividad, CatTipoActividad, ViewDetalleActividad, CatRutas} from "../models";
 
 export const db = new DataSource({
     type: "mssql",
@@ -16,9 +15,9 @@ export const db = new DataSource({
     database: "AVDBProd",
     connectionTimeout: 5000,
     entities: [CatMateria, CatActividad, CatActividadPpb, CatContenidoMaterias, CatDatoCurioso, CatDesafioDiario,
-              CatEscuela, CatPropPersonalizacion, CatTareaDiaria, CatTipoDesbloqueo, CatTipoPersonalizacion, TblAlumno,
-              TblAsistenteVirtual, TblDesbloqueosPropsAv, TblRegistroDiarioActividades, TblResultadosActividad, TblIndiceUcbAlumno,
-              CatTipoActividad, ViewDetalleProps, ViewDetalleActividad,CatRutas],
+              CatEscuela, CatAv, CatTareaDiaria, CatTipoDesbloqueo, TblAlumno,
+              TblAlumnoAv, TblRegistroDiarioActividades, TblResultadosActividad, TblIndiceUcbAlumno,
+              CatTipoActividad, ViewDetalleActividad, CatRutas],
     synchronize: false,
     options:{
       connectTimeout:5000,

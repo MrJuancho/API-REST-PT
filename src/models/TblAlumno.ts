@@ -7,8 +7,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TblAsistenteVirtual } from "./TblAsistenteVirtual";
 import { CatEscuela } from "./CatEscuela";
+import { TblAlumnoAv } from "./TblAlumnoAv";
 import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno";
 import { TblRegistroDiarioActividades } from "./TblRegistroDiarioActividades";
 import { TblResultadosActividad } from "./TblResultadosActividad";
@@ -46,32 +46,28 @@ export class TblAlumno {
   @Column("int", { name: "BalanceMonedas", default: () => "(0)" })
   balanceMonedas!: number;
 
-  @ManyToOne(
-    () => TblAsistenteVirtual,
-    (tblAsistenteVirtual) => tblAsistenteVirtual.tblAlumnos
-  )
-  @JoinColumn([{ name: "idAV", referencedColumnName: "idAv" }])
-  idAv!: TblAsistenteVirtual;
-
   @ManyToOne(() => CatEscuela, (catEscuela) => catEscuela.tblAlumnos)
   @JoinColumn([{ name: "CCT", referencedColumnName: "cct" }])
   cct!: CatEscuela;
+
+  @OneToMany(() => TblAlumnoAv, (tblAlumnoAv) => tblAlumnoAv.idAlumno)
+  tblAlumnoAvs?: TblAlumnoAv[];
 
   @OneToMany(
     () => TblIndiceUcbAlumno,
     (tblIndiceUcbAlumno) => tblIndiceUcbAlumno.idAlumno
   )
-  tblIndiceUcbAlumnos!: TblIndiceUcbAlumno[];
+  tblIndiceUcbAlumnos?: TblIndiceUcbAlumno[];
 
   @OneToMany(
     () => TblRegistroDiarioActividades,
     (tblRegistroDiarioActividades) => tblRegistroDiarioActividades.idAlumno
   )
-  tblRegistroDiarioActividades!: TblRegistroDiarioActividades[];
+  tblRegistroDiarioActividades?: TblRegistroDiarioActividades[];
 
   @OneToMany(
     () => TblResultadosActividad,
     (tblResultadosActividad) => tblResultadosActividad.idAlumno
   )
-  tblResultadosActividads!: TblResultadosActividad[];
+  tblResultadosActividads?: TblResultadosActividad[];
 }

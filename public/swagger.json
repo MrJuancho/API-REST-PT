@@ -46,11 +46,14 @@
 						"type": "number",
 						"format": "double"
 					},
-					"idAv": {
-						"$ref": "#/components/schemas/TblAsistenteVirtual"
-					},
 					"cct": {
 						"$ref": "#/components/schemas/CatEscuela"
+					},
+					"tblAlumnoAvs": {
+						"items": {
+							"$ref": "#/components/schemas/TblAlumnoAv"
+						},
+						"type": "array"
 					},
 					"tblIndiceUcbAlumnos": {
 						"items": {
@@ -82,212 +85,7 @@
 					"claveAcceso",
 					"balanceEstrellas",
 					"balanceMonedas",
-					"idAv",
-					"cct",
-					"tblIndiceUcbAlumnos",
-					"tblRegistroDiarioActividades",
-					"tblResultadosActividads"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"CatPropPersonalizacion": {
-				"properties": {
-					"idPropPersonalizacion": {
-						"type": "number",
-						"format": "double"
-					},
-					"nomProp": {
-						"type": "string"
-					},
-					"descProp": {
-						"type": "string",
-						"nullable": true
-					},
-					"costo": {
-						"type": "number",
-						"format": "double"
-					},
-					"idTipoDebloqueo": {
-						"$ref": "#/components/schemas/CatTipoDesbloqueo"
-					},
-					"idTipoPersonalizacion": {
-						"$ref": "#/components/schemas/CatTipoPersonalizacion"
-					},
-					"tblAsistenteVirtuals": {
-						"items": {
-							"$ref": "#/components/schemas/TblAsistenteVirtual"
-						},
-						"type": "array"
-					},
-					"tblAsistenteVirtuals2": {
-						"items": {
-							"$ref": "#/components/schemas/TblAsistenteVirtual"
-						},
-						"type": "array"
-					},
-					"tblAsistenteVirtuals3": {
-						"items": {
-							"$ref": "#/components/schemas/TblAsistenteVirtual"
-						},
-						"type": "array"
-					},
-					"tblAsistenteVirtuals4": {
-						"items": {
-							"$ref": "#/components/schemas/TblAsistenteVirtual"
-						},
-						"type": "array"
-					},
-					"tblAsistenteVirtuals5": {
-						"items": {
-							"$ref": "#/components/schemas/TblAsistenteVirtual"
-						},
-						"type": "array"
-					},
-					"tblDesbloqueosPropsAvs": {
-						"items": {
-							"$ref": "#/components/schemas/TblDesbloqueosPropsAv"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idPropPersonalizacion",
-					"nomProp",
-					"descProp",
-					"costo",
-					"idTipoDebloqueo",
-					"idTipoPersonalizacion",
-					"tblAsistenteVirtuals",
-					"tblAsistenteVirtuals2",
-					"tblAsistenteVirtuals3",
-					"tblAsistenteVirtuals4",
-					"tblAsistenteVirtuals5",
-					"tblDesbloqueosPropsAvs"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"CatTipoDesbloqueo": {
-				"properties": {
-					"idTipoDesbloqueo": {
-						"type": "number",
-						"format": "double"
-					},
-					"descTipoDebloqueo": {
-						"type": "string",
-						"nullable": true
-					},
-					"catPropPersonalizacions": {
-						"items": {
-							"$ref": "#/components/schemas/CatPropPersonalizacion"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idTipoDesbloqueo",
-					"descTipoDebloqueo",
-					"catPropPersonalizacions"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"CatTipoPersonalizacion": {
-				"properties": {
-					"idTipoPersonalizacion": {
-						"type": "number",
-						"format": "double"
-					},
-					"descTipoPersonalizacion": {
-						"type": "string",
-						"nullable": true
-					},
-					"catPropPersonalizacions": {
-						"items": {
-							"$ref": "#/components/schemas/CatPropPersonalizacion"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idTipoPersonalizacion",
-					"descTipoPersonalizacion",
-					"catPropPersonalizacions"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"TblAsistenteVirtual": {
-				"properties": {
-					"idAv": {
-						"type": "number",
-						"format": "double"
-					},
-					"tblAlumnos": {
-						"items": {
-							"$ref": "#/components/schemas/TblAlumno"
-						},
-						"type": "array"
-					},
-					"idCara": {
-						"$ref": "#/components/schemas/CatPropPersonalizacion"
-					},
-					"idColor": {
-						"$ref": "#/components/schemas/CatPropPersonalizacion"
-					},
-					"idPatron": {
-						"$ref": "#/components/schemas/CatPropPersonalizacion"
-					},
-					"idPrenda": {
-						"$ref": "#/components/schemas/CatPropPersonalizacion"
-					},
-					"idSpecial": {
-						"$ref": "#/components/schemas/CatPropPersonalizacion"
-					},
-					"tblDesbloqueosPropsAvs": {
-						"items": {
-							"$ref": "#/components/schemas/TblDesbloqueosPropsAv"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idAv",
-					"tblAlumnos",
-					"idCara",
-					"idColor",
-					"idPatron",
-					"idPrenda",
-					"idSpecial",
-					"tblDesbloqueosPropsAvs"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"TblDesbloqueosPropsAv": {
-				"properties": {
-					"idDesbloqueosAv": {
-						"type": "number",
-						"format": "double"
-					},
-					"fechaDesbloqueo": {
-						"type": "string",
-						"format": "date-time",
-						"nullable": true
-					},
-					"idPropsPersonalizacion": {
-						"$ref": "#/components/schemas/CatPropPersonalizacion"
-					},
-					"idAv": {
-						"$ref": "#/components/schemas/TblAsistenteVirtual"
-					}
-				},
-				"required": [
-					"idDesbloqueosAv",
-					"fechaDesbloqueo",
-					"idPropsPersonalizacion",
-					"idAv"
+					"cct"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -312,6 +110,87 @@
 					"cct",
 					"nombre",
 					"tblAlumnos"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatAv": {
+				"properties": {
+					"idAv": {
+						"type": "number",
+						"format": "double"
+					},
+					"nombreAv": {
+						"type": "string"
+					},
+					"costo": {
+						"type": "number",
+						"format": "double"
+					},
+					"idTipoDesbloqueo": {
+						"$ref": "#/components/schemas/CatTipoDesbloqueo"
+					},
+					"tblAlumnoAvs": {
+						"items": {
+							"$ref": "#/components/schemas/TblAlumnoAv"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idAv",
+					"nombreAv",
+					"costo"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatTipoDesbloqueo": {
+				"properties": {
+					"idTipoDesbloqueo": {
+						"type": "number",
+						"format": "double"
+					},
+					"descTipoDebloqueo": {
+						"type": "string",
+						"nullable": true
+					},
+					"catAvs": {
+						"items": {
+							"$ref": "#/components/schemas/CatAv"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idTipoDesbloqueo",
+					"descTipoDebloqueo"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TblAlumnoAv": {
+				"properties": {
+					"idAvAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"fechaDesbloqueo": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"idAlumno": {
+						"$ref": "#/components/schemas/TblAlumno"
+					},
+					"idAv": {
+						"$ref": "#/components/schemas/CatAv"
+					}
+				},
+				"required": [
+					"idAvAlumno",
+					"fechaDesbloqueo",
+					"idAlumno",
+					"idAv"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -830,40 +709,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"ViewDetalleProps": {
-				"properties": {
-					"idPropPersonalizacion": {
-						"type": "number",
-						"format": "double"
-					},
-					"Nom_Prop": {
-						"type": "string"
-					},
-					"Desc_Prop": {
-						"type": "string"
-					},
-					"Desc_TipoPersonalizacion": {
-						"type": "string"
-					},
-					"Desc_TipoDebloqueo": {
-						"type": "string"
-					},
-					"Costo": {
-						"type": "number",
-						"format": "double"
-					}
-				},
-				"required": [
-					"idPropPersonalizacion",
-					"Nom_Prop",
-					"Desc_Prop",
-					"Desc_TipoPersonalizacion",
-					"Desc_TipoDebloqueo",
-					"Costo"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"ViewDetalleActividad": {
 				"properties": {
 					"idActividad": {
@@ -1296,67 +1141,6 @@
 				]
 			}
 		},
-		"/tipospersonalizacion": {
-			"get": {
-				"operationId": "GetAllTiposPersonalizacion",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/CatTipoPersonalizacion"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"CatTipoPersonalizacion"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/tipospersonalizacion/{name}": {
-			"get": {
-				"operationId": "GetTipoPersonalizacion",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/CatTipoPersonalizacion"
-										}
-									],
-									"nullable": true
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"CatTipoPersonalizacion"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "name",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
 		"/tiposDesbloqueo": {
 			"get": {
 				"operationId": "GetTiposDesbloqueo",
@@ -1410,67 +1194,6 @@
 					{
 						"in": "path",
 						"name": "name",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/props": {
-			"get": {
-				"operationId": "GetAllPropsPersonalizacion",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/CatPropPersonalizacion"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"CatPropPersonalizacion"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/props/{id}": {
-			"get": {
-				"operationId": "GetPropPersonalizacion",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/CatPropPersonalizacion"
-										}
-									],
-									"nullable": true
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"CatPropPersonalizacion"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -1941,67 +1664,6 @@
 						"schema": {
 							"format": "double",
 							"type": "number"
-						}
-					}
-				]
-			}
-		},
-		"/detalleProps": {
-			"get": {
-				"operationId": "GetAllDetalleProps",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/ViewDetalleProps"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"ViewDetalleProps"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/detalleProps/{id}": {
-			"get": {
-				"operationId": "GetDetalleProps",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"allOf": [
-										{
-											"$ref": "#/components/schemas/ViewDetalleProps"
-										}
-									],
-									"nullable": true
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"ViewDetalleProps"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
 						}
 					}
 				]
