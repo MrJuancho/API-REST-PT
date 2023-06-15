@@ -195,6 +195,168 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"TblIndiceUcbAlumno": {
+				"properties": {
+					"idIndicesUcbAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"indiceUcb": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"idAlumno": {
+						"$ref": "#/components/schemas/TblAlumno"
+					},
+					"idActividad": {
+						"$ref": "#/components/schemas/CatActividad"
+					}
+				},
+				"required": [
+					"idIndicesUcbAlumno",
+					"indiceUcb",
+					"idAlumno",
+					"idActividad"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TblRegistroDiarioActividades": {
+				"properties": {
+					"idRegistroDiarioActividades": {
+						"type": "number",
+						"format": "double"
+					},
+					"tareasCompletadas": {
+						"type": "number",
+						"format": "double"
+					},
+					"desafioCompletado": {
+						"type": "boolean"
+					},
+					"fecha": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"idAlumno": {
+						"$ref": "#/components/schemas/TblAlumno"
+					},
+					"idTareaDiaria": {
+						"$ref": "#/components/schemas/CatTareaDiaria"
+					},
+					"idTareaDiaria2": {
+						"$ref": "#/components/schemas/CatTareaDiaria"
+					},
+					"idTareaDiaria3": {
+						"$ref": "#/components/schemas/CatTareaDiaria"
+					},
+					"idDesafioDiario": {
+						"$ref": "#/components/schemas/CatDesafioDiario"
+					}
+				},
+				"required": [
+					"idRegistroDiarioActividades",
+					"tareasCompletadas",
+					"desafioCompletado",
+					"fecha",
+					"idAlumno",
+					"idTareaDiaria",
+					"idTareaDiaria2",
+					"idTareaDiaria3",
+					"idDesafioDiario"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatTareaDiaria": {
+				"properties": {
+					"idTareaDiaria": {
+						"type": "number",
+						"format": "double"
+					},
+					"descripcionTarea": {
+						"type": "string",
+						"nullable": true
+					},
+					"monedas": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"estrellas": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"tblRegistroDiarioActividades": {
+						"items": {
+							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+						},
+						"type": "array"
+					},
+					"tblRegistroDiarioActividades2": {
+						"items": {
+							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+						},
+						"type": "array"
+					},
+					"tblRegistroDiarioActividades3": {
+						"items": {
+							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idTareaDiaria",
+					"descripcionTarea",
+					"monedas",
+					"estrellas",
+					"tblRegistroDiarioActividades",
+					"tblRegistroDiarioActividades2",
+					"tblRegistroDiarioActividades3"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CatDesafioDiario": {
+				"properties": {
+					"idDesafio": {
+						"type": "number",
+						"format": "double"
+					},
+					"descripcionDesafio": {
+						"type": "string",
+						"nullable": true
+					},
+					"monedas": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"estrellas": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"tblRegistroDiarioActividades": {
+						"items": {
+							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"idDesafio",
+					"descripcionDesafio",
+					"monedas",
+					"estrellas",
+					"tblRegistroDiarioActividades"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"CatActividad": {
 				"properties": {
 					"idActividad": {
@@ -422,33 +584,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"TblIndiceUcbAlumno": {
-				"properties": {
-					"idIndicesUcbAlumno": {
-						"type": "number",
-						"format": "double"
-					},
-					"indiceUcb": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"idAlumno": {
-						"$ref": "#/components/schemas/TblAlumno"
-					},
-					"idActividad": {
-						"$ref": "#/components/schemas/CatActividad"
-					}
-				},
-				"required": [
-					"idIndicesUcbAlumno",
-					"indiceUcb",
-					"idAlumno",
-					"idActividad"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"TblResultadosActividad": {
 				"properties": {
 					"idResultadosAlumno": {
@@ -496,11 +631,99 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"TblRegistroDiarioActividades": {
+			"payloadActividadUCBAlumno": {
 				"properties": {
-					"idRegistroDiarioActividades": {
+					"idAlumno": {
 						"type": "number",
 						"format": "double"
+					},
+					"idActividad": {
+						"type": "number",
+						"format": "double"
+					},
+					"indiceUCB": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"idAlumno",
+					"idActividad",
+					"indiceUCB"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"newAVPayload": {
+				"properties": {
+					"idAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"idAv": {
+						"type": "number",
+						"format": "double"
+					},
+					"FechaDesbloqueo": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"idAlumno",
+					"idAv",
+					"FechaDesbloqueo"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"uploadRegistroActividadPayload": {
+				"properties": {
+					"idAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"idDesafioDiario": {
+						"type": "number",
+						"format": "double"
+					},
+					"idTareaDiaria1": {
+						"type": "number",
+						"format": "double"
+					},
+					"idTareaDiaria2": {
+						"type": "number",
+						"format": "double"
+					},
+					"idTareaDiaria3": {
+						"type": "number",
+						"format": "double"
+					},
+					"Fecha": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"idAlumno",
+					"idDesafioDiario",
+					"idTareaDiaria1",
+					"idTareaDiaria2",
+					"idTareaDiaria3",
+					"Fecha"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"updatetareasCompletadas": {
+				"properties": {
+					"idAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"fecha": {
+						"type": "string",
+						"format": "date-time"
 					},
 					"tareasCompletadas": {
 						"type": "number",
@@ -508,125 +731,13 @@
 					},
 					"desafioCompletado": {
 						"type": "boolean"
-					},
-					"fecha": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"idAlumno": {
-						"$ref": "#/components/schemas/TblAlumno"
-					},
-					"idTareaDiaria": {
-						"$ref": "#/components/schemas/CatTareaDiaria"
-					},
-					"idTareaDiaria2": {
-						"$ref": "#/components/schemas/CatTareaDiaria"
-					},
-					"idTareaDiaria3": {
-						"$ref": "#/components/schemas/CatTareaDiaria"
-					},
-					"idDesafioDiario": {
-						"$ref": "#/components/schemas/CatDesafioDiario"
 					}
 				},
 				"required": [
-					"idRegistroDiarioActividades",
-					"tareasCompletadas",
-					"desafioCompletado",
-					"fecha",
 					"idAlumno",
-					"idTareaDiaria",
-					"idTareaDiaria2",
-					"idTareaDiaria3",
-					"idDesafioDiario"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"CatTareaDiaria": {
-				"properties": {
-					"idTareaDiaria": {
-						"type": "number",
-						"format": "double"
-					},
-					"descripcionTarea": {
-						"type": "string",
-						"nullable": true
-					},
-					"monedas": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"estrellas": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"tblRegistroDiarioActividades": {
-						"items": {
-							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-						},
-						"type": "array"
-					},
-					"tblRegistroDiarioActividades2": {
-						"items": {
-							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-						},
-						"type": "array"
-					},
-					"tblRegistroDiarioActividades3": {
-						"items": {
-							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idTareaDiaria",
-					"descripcionTarea",
-					"monedas",
-					"estrellas",
-					"tblRegistroDiarioActividades",
-					"tblRegistroDiarioActividades2",
-					"tblRegistroDiarioActividades3"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"CatDesafioDiario": {
-				"properties": {
-					"idDesafio": {
-						"type": "number",
-						"format": "double"
-					},
-					"descripcionDesafio": {
-						"type": "string",
-						"nullable": true
-					},
-					"monedas": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"estrellas": {
-						"type": "number",
-						"format": "double",
-						"nullable": true
-					},
-					"tblRegistroDiarioActividades": {
-						"items": {
-							"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"idDesafio",
-					"descripcionDesafio",
-					"monedas",
-					"estrellas",
-					"tblRegistroDiarioActividades"
+					"fecha",
+					"tareasCompletadas",
+					"desafioCompletado"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -767,94 +878,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"uploadRegistroActividadPayload": {
-				"properties": {
-					"idAlumno": {
-						"type": "number",
-						"format": "double"
-					},
-					"idDesafioDiario": {
-						"type": "number",
-						"format": "double"
-					},
-					"idTareaDiaria1": {
-						"type": "number",
-						"format": "double"
-					},
-					"idTareaDiaria2": {
-						"type": "number",
-						"format": "double"
-					},
-					"idTareaDiaria3": {
-						"type": "number",
-						"format": "double"
-					},
-					"Fecha": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"idAlumno",
-					"idDesafioDiario",
-					"idTareaDiaria1",
-					"idTareaDiaria2",
-					"idTareaDiaria3",
-					"Fecha"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"updatetareasCompletadas": {
-				"properties": {
-					"idAlumno": {
-						"type": "number",
-						"format": "double"
-					},
-					"fecha": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"tareasCompletadas": {
-						"type": "number",
-						"format": "double"
-					},
-					"desafioCompletado": {
-						"type": "boolean"
-					}
-				},
-				"required": [
-					"idAlumno",
-					"fecha",
-					"tareasCompletadas",
-					"desafioCompletado"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"payloadActividadUCBAlumno": {
-				"properties": {
-					"idAlumno": {
-						"type": "number",
-						"format": "double"
-					},
-					"idActividad": {
-						"type": "number",
-						"format": "double"
-					},
-					"indiceUCB": {
-						"type": "number",
-						"format": "double"
-					}
-				},
-				"required": [
-					"idAlumno",
-					"idActividad",
-					"indiceUCB"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"PingResponse": {
 				"properties": {
 					"message": {
@@ -882,6 +905,252 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
+		"/indiceUCB/{idAlumno}": {
+			"get": {
+				"operationId": "GetActividadesByMostUCB",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TblIndiceUcbAlumno"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Indice UCB Alumnos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idAlumno",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateIndiceUCPAlumno",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"Indice UCB Alumnos"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/indiceUCB": {
+			"post": {
+				"operationId": "PostIndiceUCBAlumno",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TblIndiceUcbAlumno"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Indice UCB Alumnos"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/alumnoAV/{idAlumno}": {
+			"get": {
+				"operationId": "GetAvByAlumno",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TblAlumnoAv"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Desbloqueos AV por Alumno"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idAlumno",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/alumnoAV": {
+			"post": {
+				"operationId": "PostAVUnlock",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TblAlumnoAv"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Desbloqueos AV por Alumno"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/newAVPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/registroDiario/{idUser}": {
+			"get": {
+				"operationId": "GetRegistroAlumno",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"RegistroDiarioTareas"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idUser",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/registroDiario": {
+			"post": {
+				"operationId": "PostRegistroDiario",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TblRegistroDiarioActividades"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"RegistroDiarioTareas"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/uploadRegistroActividadPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/registroDiario/{idAlumno}": {
+			"put": {
+				"operationId": "UpdateTareasCompletadas",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"RegistroDiarioTareas"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/updatetareasCompletadas"
+							}
+						}
+					}
+				}
+			}
+		},
 		"/resultadoActividad/{date}": {
 			"get": {
 				"operationId": "GetResultadosActividad",
@@ -1766,97 +2035,6 @@
 				]
 			}
 		},
-		"/registroDiario/{idUser}": {
-			"get": {
-				"operationId": "GetRegistroAlumno",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"RegistroDiarioTareas"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "idUser",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/registroDiario": {
-			"post": {
-				"operationId": "PostRegistroDiario",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/TblRegistroDiarioActividades"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"RegistroDiarioTareas"
-				],
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/uploadRegistroActividadPayload"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/registroDiario/{idAlumno}": {
-			"put": {
-				"operationId": "UpdateTareasCompletadas",
-				"responses": {
-					"204": {
-						"description": "No content"
-					}
-				},
-				"tags": [
-					"RegistroDiarioTareas"
-				],
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/updatetareasCompletadas"
-							}
-						}
-					}
-				}
-			}
-		},
 		"/rutas": {
 			"get": {
 				"operationId": "GetRutas",
@@ -1917,95 +2095,6 @@
 						}
 					}
 				]
-			}
-		},
-		"/indiceUCB/{idAlumno}": {
-			"get": {
-				"operationId": "GetActividadesByMostUCB",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/TblIndiceUcbAlumno"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Indice UCB Alumnos"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "idAlumno",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			},
-			"put": {
-				"operationId": "UpdateIndiceUCPAlumno",
-				"responses": {
-					"204": {
-						"description": "No content"
-					}
-				},
-				"tags": [
-					"Indice UCB Alumnos"
-				],
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/indiceUCB": {
-			"post": {
-				"operationId": "PostIndiceUCBAlumno",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/TblIndiceUcbAlumno"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Indice UCB Alumnos"
-				],
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
-							}
-						}
-					}
-				}
 			}
 		},
 		"/ping": {

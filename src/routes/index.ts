@@ -1,5 +1,8 @@
 import express from "express"
 
+import TblIndiceUCBAlumnoController from "./TblUCBController.router"
+import TblAlumnoAVController from "./TblAlumnoAv.router"
+import TblRegistroDiarioActividadesController from "./TblRegistroDiarioActividades.router"
 import TblResultadosActividad from "./TblResultadosActividad.router"
 import TblAlumnoController from "./TblAlumno.router"
 import CatMateriaRouter from "./CatMateria.router"
@@ -14,9 +17,7 @@ import CatContenidoMateriasController from "./CatContenidoMaterias.router"
 import CatActividadPPBController from "./CatActividadPPB.router"
 import ViewDetalleActividadController from "./ViewDetalleActividad.router"
 import ViewDetalleActividadTipoActividadController from "./ViewDetalleActividad.router"
-import TblRegistroDiarioActividadesController from "./TblRegistroDiarioActividades.router"
 import CatRutas from "./CatRutas.router"
-import TblIndiceUCBAlumnoController from "./TblUCBController.router"
 
 import PingController from "../controllers/ping"
 
@@ -39,6 +40,7 @@ router.use("/detalleActividadTipoActividad", ViewDetalleActividadTipoActividadCo
 router.use("/resultadoActividad",TblResultadosActividad)
 router.use("/registroDiario",TblRegistroDiarioActividadesController)
 router.use("/indiceUCB", TblIndiceUCBAlumnoController)
+router.use("/alumnoAv", TblAlumnoAVController)
 
 
 router.get("/ping", async (_req, res) => {
