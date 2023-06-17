@@ -12,6 +12,7 @@ import { TblAlumnoAv } from "./TblAlumnoAv";
 import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno";
 import { TblRegistroDiarioActividades } from "./TblRegistroDiarioActividades";
 import { TblResultadosActividad } from "./TblResultadosActividad";
+import { TblSeleccionAv } from "./TblSeleccionAv";
 
 @Index("PK_TBL_Alumno", ["idAlumno"], { unique: true })
 @Entity("TBL_Alumno", { schema: "dbo" })
@@ -29,7 +30,7 @@ export class TblAlumno {
   apellidoPaterno!: string;
 
   @Column("smallint", { name: "NoLista" })
-  noLista!: number;
+  noList!: number;
 
   @Column("date", { name: "FechaNacimiento", nullable: true })
   fechaNacimiento!: Date | null;
@@ -70,4 +71,7 @@ export class TblAlumno {
     (tblResultadosActividad) => tblResultadosActividad.idAlumno
   )
   tblResultadosActividads?: TblResultadosActividad[];
+
+  @OneToMany(() => TblSeleccionAv, (tblSeleccionAv) => tblSeleccionAv.idAlumno)
+  tblSeleccionAvs?: TblSeleccionAv[];
 }

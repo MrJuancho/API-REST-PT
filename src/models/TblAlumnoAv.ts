@@ -4,10 +4,12 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TblAlumno } from "./TblAlumno";
 import { CatAv } from "./CatAv";
+import { TblAlumno } from "./TblAlumno";
+import { TblSeleccionAv } from "./TblSeleccionAv";
 
 @Index("PK_TBL_AlumnoAV", ["idAvAlumno"], { unique: true })
 @Entity("TBL_AlumnoAV", { schema: "dbo" })
@@ -18,11 +20,17 @@ export class TblAlumnoAv {
   @Column("datetime", { name: "FechaDesbloqueo" })
   fechaDesbloqueo!: Date;
 
+  @ManyToOne(() => CatAv, (catAv) => catAv.tblAlumnoAvs)
+  @JoinColumn([{ name: "idAV", referencedColumnName: "idAv" }])
+  idAv!: CatAv;
+
   @ManyToOne(() => TblAlumno, (tblAlumno) => tblAlumno.tblAlumnoAvs)
   @JoinColumn([{ name: "idAlumno", referencedColumnName: "idAlumno" }])
   idAlumno!: TblAlumno;
 
-  @ManyToOne(() => CatAv, (catAv) => catAv.tblAlumnoAvs)
-  @JoinColumn([{ name: "idAV", referencedColumnName: "idAv" }])
-  idAv!: CatAv;
+  @OneToMany(
+    () => TblSeleccionAv,
+    (tblSeleccionAv) => tblSeleccionAv.idAlumnoAv
+  )
+  tblSeleccionAvs?: TblSeleccionAv[];
 }
