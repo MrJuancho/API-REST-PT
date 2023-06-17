@@ -21,7 +21,7 @@
 					"apellidoPaterno": {
 						"type": "string"
 					},
-					"noLista": {
+					"noList": {
 						"type": "number",
 						"format": "double"
 					},
@@ -72,6 +72,12 @@
 							"$ref": "#/components/schemas/TblResultadosActividad"
 						},
 						"type": "array"
+					},
+					"tblSeleccionAvs": {
+						"items": {
+							"$ref": "#/components/schemas/TblSeleccionAv"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
@@ -79,7 +85,7 @@
 					"nombre",
 					"apellidoMaterno",
 					"apellidoPaterno",
-					"noLista",
+					"noList",
 					"fechaNacimiento",
 					"nombreUsuario",
 					"claveAcceso",
@@ -179,18 +185,45 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"idAv": {
+						"$ref": "#/components/schemas/CatAv"
+					},
 					"idAlumno": {
 						"$ref": "#/components/schemas/TblAlumno"
 					},
-					"idAv": {
-						"$ref": "#/components/schemas/CatAv"
+					"tblSeleccionAvs": {
+						"items": {
+							"$ref": "#/components/schemas/TblSeleccionAv"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
 					"idAvAlumno",
 					"fechaDesbloqueo",
-					"idAlumno",
-					"idAv"
+					"idAv",
+					"idAlumno"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TblSeleccionAv": {
+				"properties": {
+					"idSeleccionAv": {
+						"type": "number",
+						"format": "double"
+					},
+					"idAlumnoAv": {
+						"$ref": "#/components/schemas/TblAlumnoAv"
+					},
+					"idAlumno": {
+						"$ref": "#/components/schemas/TblAlumno"
+					}
+				},
+				"required": [
+					"idSeleccionAv",
+					"idAlumnoAv",
+					"idAlumno"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -654,6 +687,24 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"editAVPayload": {
+				"properties": {
+					"idAlumno": {
+						"type": "number",
+						"format": "double"
+					},
+					"idAV": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"idAlumno",
+					"idAV"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"newAVPayload": {
 				"properties": {
 					"idAlumno": {
@@ -988,6 +1039,65 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/payloadActividadUCBAlumno"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/seleccionAV/{idAlumno}": {
+			"get": {
+				"operationId": "GetAlumnoSelectedAV",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/TblSeleccionAv"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Asistente Virtual Seleccioando por el Alumno"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idAlumno",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateSelectedAV",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"Asistente Virtual Seleccioando por el Alumno"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/editAVPayload"
 							}
 						}
 					}

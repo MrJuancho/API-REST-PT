@@ -1,6 +1,7 @@
 import express from "express"
 
 import TblIndiceUCBAlumnoController from "./TblUCBController.router"
+import TblSeleccionAVController from "./TblSeleccionAV.router"
 import TblAlumnoAVController from "./TblAlumnoAv.router"
 import TblRegistroDiarioActividadesController from "./TblRegistroDiarioActividades.router"
 import TblResultadosActividad from "./TblResultadosActividad.router"
@@ -43,6 +44,7 @@ router.use("/resultadoActividad",TblResultadosActividad)
 router.use("/registroDiario",TblRegistroDiarioActividadesController)
 router.use("/indiceUCB", TblIndiceUCBAlumnoController)
 router.use("/alumnoAv", TblAlumnoAVController)
+router.use("/seleccionAV", TblSeleccionAVController)
 
 
 router.get("/ping", async (_req, res) => {
