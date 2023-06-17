@@ -18,6 +18,7 @@ import CatActividadPPBController from "./CatActividadPPB.router"
 import ViewDetalleActividadController from "./ViewDetalleActividad.router"
 import ViewDetalleActividadTipoActividadController from "./ViewDetalleActividad.router"
 import CatRutas from "./CatRutas.router"
+import CatAv from "./CatAv.router"
 
 import PingController from "../controllers/ping"
 
@@ -25,6 +26,7 @@ const router = express.Router()
 
 router.use("/materias", CatMateriaRouter)
 router.use("/rutas", CatRutas)
+router.use("/AVs", CatAv)
 router.use("/tiposDesbloqueo", CatTipoDesbloqueo)
 router.use("/actividades", CatActividadController)
 router.use("/escuelas", CatEscuelaController)

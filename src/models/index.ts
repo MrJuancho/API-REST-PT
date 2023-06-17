@@ -5,7 +5,6 @@ import { CatActividadPpb } from "./CatActividadPpb"
 import { CatDatoCurioso } from "./CatDatoCurioso"
 import { CatDesafioDiario } from "./CatDesafioDiario"
 import { CatEscuela } from "./CatEscuela"
-import { CatAv } from "./CatAv"
 import { TblAlumnoAv } from "./TblAlumnoAv"
 import { CatTareaDiaria } from "./CatTareaDiaria"
 import { CatTipoDesbloqueo } from "./CatTipoDesbloqueo"
@@ -16,6 +15,7 @@ import { CatTipoActividad } from "./CatTipoActividad"
 import { ViewDetalleActividad } from "./ViewDetalleActividad"
 import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno"
 import { CatRutas } from "./CatRutas"
+import { CatAv } from "./CatAv"
 
 export { CatMateria, CatContenidoMaterias,
     CatActividad, CatActividadPpb,
