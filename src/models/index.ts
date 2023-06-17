@@ -16,6 +16,7 @@ import { ViewDetalleActividad } from "./ViewDetalleActividad"
 import { TblIndiceUcbAlumno } from "./TblIndiceUcbAlumno"
 import { CatRutas } from "./CatRutas"
 import { CatAv } from "./CatAv"
+import { TblSeleccionAv } from "./TblSeleccionAv"
 
 export { CatMateria, CatContenidoMaterias,
     CatActividad, CatActividadPpb,
@@ -25,4 +26,4 @@ export { CatMateria, CatContenidoMaterias,
     TblAlumnoAv, CatTipoDesbloqueo,
     TblRegistroDiarioActividades,
     TblIndiceUcbAlumno, TblResultadosActividad,
-    CatTipoActividad, ViewDetalleActividad , CatRutas }
+    CatTipoActividad, ViewDetalleActividad , CatRutas, TblSeleccionAv }
