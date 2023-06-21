@@ -2232,7 +2232,7 @@
 				"parameters": []
 			}
 		},
-		"/AVs/{id}": {
+		"/AVs/tipo/{idTipoAV}": {
 			"get": {
 				"operationId": "GetTipodAV",
 				"responses": {
@@ -2257,7 +2257,44 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "idTipoAV",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/AVs/av/{idAV}": {
+			"get": {
+				"operationId": "GetAV",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/CatAv"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"CatAV"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idAV",
 						"required": true,
 						"schema": {
 							"format": "double",

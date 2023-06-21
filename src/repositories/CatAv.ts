@@ -13,3 +13,9 @@ export const getTipoAV = async (id: number): Promise<CatAv[]> => {
       where: { idTipoDesbloqueo: Equal(id) },
     });
 }
+
+export const getAV = async (id: number): Promise<CatAv|null> => {
+  const AVRepo = db.getRepository(CatAv);
+  return await AVRepo.findOne({ where: { idAv: id },
+  });
+}
